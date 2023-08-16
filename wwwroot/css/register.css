@@ -1,0 +1,17 @@
+﻿body {
+  margin: 0;
+  padding: 0;
+  background-color: #17a2b8;
+
+}
+#login .container #login-row #login-column #login-box {
+  padding-top:0px;
+  max-width: 600px;
+  border: 1px solid #9C9C9C;
+  background-color: #EAEAEA;
+}
+.textShowPassword {
+    cursor: pointer;
+    font-size: 13px;
+    color: RGB(0,0,0,0.60);
+}
