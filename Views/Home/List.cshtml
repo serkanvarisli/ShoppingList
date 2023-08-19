@@ -1,6 +1,26 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-List page
+﻿	<button class="btn btn-primary">Alışverişe Çıkıyorum</button>
+    <button class="btn btn-success">Alışveriş Tamamlandı</button>
+    <form>
+    <center><h3>ÜRÜNLER</h3></center>
+
+<div class="container">
+<div class="row">
+    <div class="col-sm-2">
+        <div class="card">
+            <div class="card-body">               
+                    <img class="card-img-top img-fluid" src="/images/register.jpg" alt="Card image cap">
+                    <center>
+                        <h5 class="card-title">Ürün Adı</h5>
+                        <a asp-action="Product" asp-controller="Home">
+							<button type="button" class="btn btn-primary" />Ürün Detayı</button>
+                        </a>
+                            <span>Aldım </span><input type="checkbox" />
+                            <button type="button" class="btn btn-warning" />Güncelle</button>
+                            <button type="button" class="btn btn-danger" />Sil</button>
+                    </center>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</form>

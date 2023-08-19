@@ -1,36 +1,44 @@
-﻿using System.Diagnostics;
-using Microsoft.AspNetCore.Mvc;
-using ShoppingList.Models;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace ShoppingList.Controllers
 {
 	public class HomeController : Controller
 	{
-		private readonly ILogger<HomeController> _logger;
-
-		public HomeController(ILogger<HomeController> logger)
-		{
-			_logger = logger;
-		}
 
 		public IActionResult Index()
 		{
 			return View();
 		}
 
-		public IActionResult Privacy()
-		{
-			return View();
-		}
         public IActionResult List()
         {
             return View();
         }
+        public IActionResult AddList()
+        {
+            return View();
+        }
+        public IActionResult DeleteList()
+        {
+            return View();
+        }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-		public IActionResult Error()
-		{
-			return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-		}
-	}
+        public IActionResult Product()
+        {
+            return View();
+        }
+        public IActionResult AddProduct() 
+        {
+            return View();
+        }
+        public IActionResult UpdateProduct()
+        {
+            return View();
+        }
+        public IActionResult DeleteProduct()
+        {
+            return View();
+        }
+
+    }
 }

@@ -25,6 +25,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\images\\addfile.png",
+      "PackagePath": "staticwebassets\\images\\addfile.png"
+    },
+    {
       "Id": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\images\\register.jpg",
       "PackagePath": "staticwebassets\\images\\register.jpg"
     },
