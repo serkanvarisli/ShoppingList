@@ -1,26 +1,47 @@
-﻿	<button class="btn btn-primary">Alışverişe Çıkıyorum</button>
-    <button class="btn btn-success">Alışveriş Tamamlandı</button>
-    <form>
-    <center><h3>ÜRÜNLER</h3></center>
-<div class="container">
-<div class="row">
-    <div class="col-sm-2">
-        <div class="card">
-            <div class="card-body">               
+﻿@section nav{
+        <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AddProduct" id="addPruductNav">ÜRÜN EKLE</a>
+        </li>
+}
+<form>
+    <div class="row">  
+        <div class="col">
+            <a asp-controller="Home" asp-action="AddProduct" >
+                <button type="button" class="btn btn-success" id="addProduct" />Ürün Ekle</button>
+            </a>
+        </div>
+        <div class="col">
+            <button type="button" class="btn btn-primary float-right" id="startShopping">ALIŞVERİŞE ÇIKIYORUM</button>
+            <button type="button" class="btn btn-secondary float-right" id="endShopping" style="display:none;">ALIVERİŞ TAMAMLANDI</button>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            
+        </div>
+    </div>
+
+        <center><h3>ÜRÜNLER</h3></center>
+    <div class="row">
+        <div class="col-sm-2">
+            <div class="card">
+                <div class="card-body">               
                     <img class="card-img-top img-fluid" src="/images/register.jpg" alt="Card image cap">
                     <center>
                         <h5 class="card-title">Ürün Adı</h5>
+                        <div id="bought" style="display:none;">
                             <span>Aldım </span><input type="checkbox" />
+                        </div>
                         <p></p>
                         <a asp-action="Product" asp-controller="Home">
 							<button type="button" class="btn btn-primary" />Ürün Detayı</button>
                         </a>
                             <p></p>
-                            <button type="button" class="btn btn-danger" />Ürünü Çıkar</button>
+                            <button type="button" class="btn btn-danger" id="removeProduct" />Ürünü Çıkar</button>
                     </center>
+                </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 </form>

@@ -7,21 +7,21 @@
 
 $(function () {
     $("#showPassword").change(function () {
-        var checked = $(this).is(":checked");
+        const checked = $(this).is(":checked");
         if (checked) {
             $("#password").attr("type", "text");
-            var metin = document.getElementById("showText").innerHTML;
+            const metin = document.getElementById("showText").innerHTML;
 
             // Belirli bir metni değiştir
-            var yeniMetin = metin.replace("Şifreyi Göster ", "Şifreyi Gizle ");
+            const yeniMetin = metin.replace("Şifreyi Göster ", "Şifreyi Gizle ");
 
             // Metni güncelle
             document.getElementById("showText").innerHTML = yeniMetin;
         } else {
             $("#password").attr("type", "password");
-            var metin = document.getElementById("showText").innerHTML;
+            const metin = document.getElementById("showText").innerHTML;
 
-            var yeniMetin = metin.replace("Şifreyi Gizle ", "Şifreyi Göster ");
+            const yeniMetin = metin.replace("Şifreyi Gizle ", "Şifreyi Göster ");
 
             // Metni güncelle
             document.getElementById("showText").innerHTML = yeniMetin;
@@ -32,21 +32,21 @@ $(function () {
 // repassword login page
 $(function () {
     $("#showPassword").change(function () {
-        var checked = $(this).is(":checked");
+        const checked = $(this).is(":checked");
         if (checked) {
             $("#repassword").attr("type", "text");
-            var metin = document.getElementById("showText").innerHTML;
+            const metin = document.getElementById("showText").innerHTML;
 
             // Belirli bir metni değiştir
-            var yeniMetin = metin.replace("Şifreyi Göster ", "Şifreyi Gizle ");
+            const yeniMetin = metin.replace("Şifreyi Göster ", "Şifreyi Gizle ");
 
             // Metni güncelle
             document.getElementById("showText").innerHTML = yeniMetin;
         } else {
             $("#repassword").attr("type", "password");
-            var metin = document.getElementById("showText").innerHTML;
+            const metin = document.getElementById("showText").innerHTML;
 
-            var yeniMetin = metin.replace("Şifreyi Gizle ", "Şifreyi Göster ");
+            const yeniMetin = metin.replace("Şifreyi Gizle ", "Şifreyi Göster ");
 
             // Metni güncelle
             document.getElementById("showText").innerHTML = yeniMetin;
@@ -56,25 +56,46 @@ $(function () {
 // admin login
 $(function () {
     $("#showPassword").change(function () {
-        var checked = $(this).is(":checked");
+        const checked = $(this).is(":checked");
         if (checked) {
             $("#adminpassword").attr("type", "text");
-            var metin = document.getElementById("showText").innerHTML;
+            const metin = document.getElementById("showText").innerHTML;
 
             // Belirli bir metni değiştir
-            var yeniMetin = metin.replace("Şifreyi Göster ", "Şifreyi Gizle ");
+            const yeniMetin = metin.replace("Şifreyi Göster ", "Şifreyi Gizle ");
 
             // Metni güncelle
             document.getElementById("showText").innerHTML = yeniMetin;
         } else {
             $("#adminpassword").attr("type", "password");
-            var metin = document.getElementById("showText").innerHTML;
+            const metin = document.getElementById("showText").innerHTML;
 
-            var yeniMetin = metin.replace("Şifreyi Gizle ", "Şifreyi Göster ");
+            const yeniMetin = metin.replace("Şifreyi Gizle ", "Şifreyi Göster ");
 
             // Metni güncelle
             document.getElementById("showText").innerHTML = yeniMetin;
         }
+    });
+});
+//Alışveriş işlemleri jquery
+$(document).ready(function () {
+    $('#startShopping').click(function () {
+        $('#startShopping').hide();
+        $('#endShopping').show();
+        $('#addPruductNav').hide();
+        $('#removeProduct').hide();
+        $('#addProduct').hide();
+        $('#bought').show();
+    });
+});
+$(document).ready(function () {
+    $('#endShopping').click(function () {
+        $('#endShopping').hide();
+        $('#startShopping').show();
+        $('#addPruductNav').show();
+        $('#removeProduct').show();
+        $('#addProduct').show();
+        $('#bought').hide();
     });
 });
 
@@ -95,6 +116,7 @@ editproduct.addEventListener('click', function () {
     saveproduct.hidden = false;
     editproduct.hidden = true;
 });
+
 saveproduct.addEventListener('click', function () {
     myInput1.readOnly = true;
     myInput2.readOnly = true;
@@ -104,3 +126,5 @@ saveproduct.addEventListener('click', function () {
     editproduct.hidden = false;
 
 });
+
+
