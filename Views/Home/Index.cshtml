@@ -1,7 +1,12 @@
-﻿
-<button type="button" class="btn btn-secondary">
-	Yeni Liste Oluştur
-</button>
+﻿@section nav {
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">LİSTELERİM</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AddList">YENİ LİSTE OLUŞTUR</a>
+    </li>
+}
+
 <p><h2>LİSTELERİM</h2></p>
 
 <div class="card" style="width: 18rem;">
@@ -9,4 +14,21 @@
         <h5 class="card-title">Liste Adı</h5>
         <a asp-action="list" asp-controller="Home" class="btn btn-primary">Listeye gitmek için tıklayın</a>
     </div>
+</div>
+@*<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">Yeni Liste Oluştur</h5>
+        <button type="button" class="btn btn-secondary">
+            Yeni Liste Oluşturmak İçin Tıkla
+        </button>
+        <p></p>
+        <form>
+            <div class="form-group">
+                <span for="listname">Liste Adı: </span>
+                <input type="text" class="form-control"id="listname">
+                <br />
+				<input type="submit" class="btn btn-primary" value="Oluştur" id="CreateButton">
+            </div>
+        </form>
     </div>
+</div>*@
