@@ -31,44 +31,50 @@ public partial class MyDbContext : DbContext
     {
         modelBuilder.Entity<Category>(entity =>
         {
-            entity
-                .HasNoKey()
-                .ToTable("Category");
+            entity.ToTable("Category");
 
+            entity.Property(e => e.CategoryId).ValueGeneratedNever();
             entity.Property(e => e.CategoryName).HasColumnType("text");
         });
 
         modelBuilder.Entity<List>(entity =>
         {
-            entity
-                .HasNoKey()
-                .ToTable("List");
+            entity.ToTable("List");
 
+            entity.Property(e => e.ListId).ValueGeneratedNever();
             entity.Property(e => e.ListName).HasColumnType("ntext");
         });
 
         modelBuilder.Entity<Product>(entity =>
         {
-            entity
-                .HasNoKey()
-                .ToTable("Product");
+            entity.ToTable("Product");
 
+            entity.Property(e => e.ProductId).ValueGeneratedNever();
             entity.Property(e => e.ProductBrand).HasColumnType("ntext");
             entity.Property(e => e.ProductDetail).HasColumnType("ntext");
             entity.Property(e => e.ProductImage).HasColumnType("image");
             entity.Property(e => e.ProductName).HasColumnType("ntext");
             entity.Property(e => e.ProductQuantity).HasColumnType("ntext");
+
+            entity.HasOne(d => d.Category).WithMany(p => p.Products)
+                .HasForeignKey(d => d.CategoryId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Product_Category");
+
+            entity.HasOne(d => d.List).WithMany(p => p.Products)
+                .HasForeignKey(d => d.ListId)
+                .HasConstraintName("FK_Product_List");
         });
 
         modelBuilder.Entity<User>(entity =>
         {
-            entity
-                .HasNoKey()
-                .ToTable("User");
+            entity.ToTable("User");
 
+            entity.Property(e => e.UserId)
+                .ValueGeneratedNever()
+                .HasColumnName("UserID");
             entity.Property(e => e.Password).HasColumnType("ntext");
             entity.Property(e => e.UserEmail).HasColumnType("ntext");
-            entity.Property(e => e.UserId).HasColumnName("UserID");
             entity.Property(e => e.UserName).HasColumnType("ntext");
             entity.Property(e => e.UserSurname).HasColumnType("ntext");
         });

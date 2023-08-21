@@ -20,4 +20,8 @@ public partial class Product
     public string? ProductDetail { get; set; }
 
     public byte[]? ProductImage { get; set; }
+
+    public virtual Category Category { get; set; } = null!;
+
+    public virtual List List { get; set; } = null!;
 }
