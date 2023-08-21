@@ -1,4 +1,7 @@
 ﻿@section nav{
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">LİSTELERİM</a>
+    </li>
         <li class="nav-item">
         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AddProduct" id="addPruductNav">ÜRÜN EKLE</a>
         </li>
@@ -34,8 +37,12 @@
                         </div>
                         <p></p>
                         <a asp-action="Product" asp-controller="Home">
-							<button type="button" class="btn btn-primary" />Ürün Detayı</button>
+                            <button type="button" class="btn btn-primary" id="beforeShopping" />Ürün Detayı </button>
                         </a>
+                        <a asp-action="ProductReadOnly" asp-controller="Home">
+                            <button type="button" class="btn btn-secondary" id="afterShopping" style="display:none;"/>Ürün Detayı </button>
+                        </a>
+
                             <p></p>
                             <button type="button" class="btn btn-danger" id="removeProduct" />Ürünü Çıkar</button>
                     </center>

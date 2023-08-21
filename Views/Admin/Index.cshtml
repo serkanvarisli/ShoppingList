@@ -5,23 +5,12 @@
     <li class="nav-item">
         <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="AddProduct">ÜRÜN EKLE</a>
     </li>
+    <a href="@Url.Action("Logout", "Admin")">Çıkış yap</a>
+
 }
 
 <div class="row">
-<div class="col-sm-3">
-    <div class="card">
-        <div class="card-body">
-               <a asp-action="AddProduct" asp-controller="Admin" class="text-black">
-                <center> <h5 class="card-title">ÜRÜN EKLE</h5>
-            <p class="card-text"> Ürün ekleme için tıklayınız
-                <br />
-                <br />
-            </p>
-            <a asp-action="AddProduct" asp-controller="Admin" class="btn btn-primary">Ürün ekle</a></center>
-                </a>
-        </div>
-    </div>
-</div>
+
     <div class="col-sm-3">
         <div class="card">
             <div class="card-body">

@@ -77,6 +77,22 @@ $(function () {
         }
     });
 });
+
+
+//Ürün detay kontainer
+
+$(document).ready(function () {
+    // Radyo düğmesine tıklandığında
+    $('input[name="addProductDetailRadio"]').change(function () {
+        if ($(this).prop("id") === "addProductDetailRadio") {
+            $('#hiddenProductDetailContainer').show();
+        } else {
+            $('#hiddenProductDetailContainer').hide();
+        }
+    });
+});
+
+
 //Alışveriş işlemleri jquery
 $(document).ready(function () {
     $('#startShopping').click(function () {
@@ -86,6 +102,9 @@ $(document).ready(function () {
         $('#removeProduct').hide();
         $('#addProduct').hide();
         $('#bought').show();
+        $('#afterShopping').show();
+        $('#beforeShopping').hide();
+
     });
 });
 $(document).ready(function () {
@@ -96,6 +115,8 @@ $(document).ready(function () {
         $('#removeProduct').show();
         $('#addProduct').show();
         $('#bought').hide();
+        $('#afterShopping').hide();
+        $('#beforeShopping').show();
     });
 });
 
@@ -126,5 +147,7 @@ saveproduct.addEventListener('click', function () {
     editproduct.hidden = false;
 
 });
+
+
 
 

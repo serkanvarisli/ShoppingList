@@ -40,6 +40,10 @@ namespace ShoppingList.Controllers
         {
             return View();
         }
+        public IActionResult ProductReadOnly()
+        {
+            return View();
+        }
 
     }
 }

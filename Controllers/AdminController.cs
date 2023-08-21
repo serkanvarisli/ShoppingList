@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ShoppingList.Controllers
@@ -56,6 +57,12 @@ namespace ShoppingList.Controllers
         public IActionResult DeleteCategory()
         {
             return View();
+        }
+        public IActionResult Logout()
+        {
+            // Oturumu sonlandırma işlemleri
+            HttpContext.SignOutAsync(); // Oturumu sonlandır
+            return RedirectToAction("Login", "Admin"); // Anasayfaya yönlendir
         }
 
     }
