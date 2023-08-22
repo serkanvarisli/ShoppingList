@@ -1,0 +1,25 @@
+﻿@{
+    Layout = "_AdminLayout"; // Bu satır sayesinde layout kullanılmayacak.
+}
+<link rel="stylesheet" href="~/css/adminpage.css" />
+<table class="table table-striped">
+    <h2>Kategoriler</h2>
+        <br />
+        <tr>
+            <th>Kategori Adı</th>
+        <th class="d-flex justify-content-end">
+            <a asp-action="AddCategory" asp-controller="Admin">
+                <button class="btn btn-success">&ensp; Kategori Ekle &ensp;</button>
+            </a>
+        </th>
+        </tr>
+            <tr>
+                <td>kategori </td>
+                <td class="d-flex justify-content-end">
+                    <button class="btn btn-warning">Güncelle</button> 
+                    &ensp;
+                    <button class="btn btn-danger">Sil</button>
+                </td>
+            </tr>
+        
+</table>

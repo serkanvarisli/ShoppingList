@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\css\\adminlogin.css"
     },
     {
+      "Id": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\css\\adminpage.css",
+      "PackagePath": "staticwebassets\\css\\adminpage.css"
+    },
+    {
       "Id": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\css\\login.css",
       "PackagePath": "staticwebassets\\css\\login.css"
     },

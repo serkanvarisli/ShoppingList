@@ -42,7 +42,7 @@ namespace ShoppingList.Controllers
 		{
 			return View();
 		}
-        public IActionResult Categories()
+        public IActionResult Category()
         {
             return View();
         }

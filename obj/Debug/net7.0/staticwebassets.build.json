@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "LqFrpJeCDp3QklMTOx4jZDTqbUH6PuvHUl3trOCMR0A=",
+  "Hash": "QtOKVzD7odfYTimV1ZqgIu4SKtjXFJWvmm+zZ6XSZMc=",
   "Source": "ShoppingList",
   "BasePath": "_content/ShoppingList",
   "Mode": "Default",
@@ -66,6 +66,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\adminlogin.css"
+    },
+    {
+      "Identity": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\css\\adminpage.css",
+      "SourceId": "ShoppingList",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\",
+      "BasePath": "_content/ShoppingList",
+      "RelativePath": "css/adminpage.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\adminpage.css"
     },
     {
       "Identity": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\css\\login.css",

@@ -1,6 +1,16 @@
-﻿@section nav {
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Index">ÜRÜNLER</a>
-    </li>
+﻿@{
+    Layout = "_AdminLayout"; // Bu satır sayesinde layout kullanılmayacak.
 }
-Ürün ekle
+<link rel="stylesheet" href="~/css/adminpage.css" />
+<br />
+<div class="d-flex justify-content-center">
+<h2>Ürün Ekle</h2>
+</div>
+<form>
+    <b>Ürün Resmi:</b><input type="file" class="form-control" />
+    <br />
+    <b>Ürün Adı:</b><input type="text" class="form-control" />
+    <br />
+	<button type="submit" class="btn btn-success form-control">Ekle</button>
+
+</form>
