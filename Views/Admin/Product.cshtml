@@ -1,0 +1,28 @@
+﻿@{
+    Layout = "_AdminLayout"; // Bu satır sayesinde layout kullanılmayacak.
+}
+<br />
+<div class="d-flex justify-content-start">
+    <a asp-action="AddProduct" asp-controller="Admin">
+    <button class="btn btn-success"> Ürün Ekle</button>
+    </a>
+</div>
+    <hr />
+<div class="row">
+    <center><p><h1>Ürünler</h1></p></center>
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="card" @*style="width: 18rem;"*@>
+                <div class="card-body">
+                    <img class="card-img-top" src="~/images/shoppinglist.jpg" alt="Card image cap">
+                    <center>
+                        <h5 class="card-title">Ürün Adı</h5>
+                        <p class="card-text">Kategori=</p>
+                        <a asp-action="UpdateProduct" asp-controller="Admin" class="btn btn-warning">Ürünü Güncelle</a> <br /><br />
+                        <a asp-action="DeleteProduct" asp-controller="Admin" class="btn btn-danger">Ürünü Sil</a>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

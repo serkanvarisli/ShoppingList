@@ -12,6 +12,10 @@ namespace ShoppingList.Controllers
         {
             return View();
         }
+        public IActionResult Product()
+        {
+            return View();
+        }
         [HttpGet]
         public IActionResult Login()
         {
