@@ -8,7 +8,7 @@ namespace ShoppingList.Controllers
     {
         //[Authorize]
 
-        public IActionResult Index()
+        public IActionResult Panel()
         {
             return View();
         }
@@ -26,7 +26,7 @@ namespace ShoppingList.Controllers
         {
             if (adminemail == "admin@gmail.com" && adminpassword == "admin123")
             {
-                return RedirectToAction("Index","Admin");
+                return RedirectToAction("Panel", "Admin");
             }
             else
             {
