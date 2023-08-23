@@ -1,4 +1,6 @@
-﻿@section nav {
+﻿@model List<List>
+
+@section nav {
     <li class="nav-item">
         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">LİSTELERİM</a>
     </li>
@@ -16,10 +18,22 @@
 </div>
 </div>
 <center><h2>LİSTELERİM</h2></center>
+<div class="row d-flex justify-content-center">
+    @foreach (var list in Model)
+    {       
+        <div class="col-md-4">
+            <br>
+        <div class="card border-5" style="width: 22rem;">
+            <center>
+                    <div class="card-body ">
+                        <h5 class="card-title">@list.ListName</h5>
+                        <a asp-action="list" asp-controller="Home" class="btn btn-primary">Listeye gitmek için tıklayın</a>
+                    </div>
+            </center>
+        </div>
+        </div>
 
-<div class="card" style="width: 18rem;">
-    <div class="card-body">
-        <h5 class="card-title">Liste Adı</h5>
-        <a asp-action="list" asp-controller="Home" class="btn btn-primary">Listeye gitmek için tıklayın</a>
-    </div>
+    }
 </div>
+<br />
+<br />

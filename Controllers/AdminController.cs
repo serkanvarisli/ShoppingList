@@ -9,20 +9,19 @@ namespace ShoppingList.Controllers
     public class AdminController : Controller
     {
         //[Authorize]
-        MyDbContext _context = new MyDbContext();
+        MyDbContext _context;
 
         public AdminController(MyDbContext context)
         {
             _context = context;
         }
-
-
         public IActionResult Panel()
         {
             return View();
         }
         public IActionResult Product()
         {
+
             return View();
         }
         [HttpGet]

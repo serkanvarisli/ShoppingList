@@ -43,6 +43,11 @@ public partial class MyDbContext : DbContext
 
             entity.Property(e => e.ListId).ValueGeneratedNever();
             entity.Property(e => e.ListName).HasColumnType("ntext");
+
+            entity.HasOne(d => d.User).WithMany(p => p.Lists)
+                .HasForeignKey(d => d.UserId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_List_User");
         });
 
         modelBuilder.Entity<Product>(entity =>
@@ -63,6 +68,7 @@ public partial class MyDbContext : DbContext
 
             entity.HasOne(d => d.List).WithMany(p => p.Products)
                 .HasForeignKey(d => d.ListId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Product_List");
         });
 
@@ -70,9 +76,7 @@ public partial class MyDbContext : DbContext
         {
             entity.ToTable("User");
 
-            entity.Property(e => e.UserId)
-                .ValueGeneratedNever()
-                .HasColumnName("UserID");
+            entity.Property(e => e.UserId).ValueGeneratedNever();
             entity.Property(e => e.Password).HasColumnType("ntext");
             entity.Property(e => e.UserEmail).HasColumnType("ntext");
             entity.Property(e => e.UserName).HasColumnType("ntext");

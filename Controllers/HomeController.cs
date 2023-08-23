@@ -1,14 +1,23 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using ShoppingList.Models;
 
 namespace ShoppingList.Controllers
 {
 	public class HomeController : Controller
 	{
         //[Authorize]
-		public IActionResult Index()
+        MyDbContext _context;
+
+        public HomeController(MyDbContext context)
+        {
+            _context = context;
+        }
+        public IActionResult Index()
 		{
-			return View();
+            var lists = _context.Lists.ToList();
+
+            return View(lists);
 		}
 
         public IActionResult List()
