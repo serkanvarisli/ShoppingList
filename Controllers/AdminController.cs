@@ -1,12 +1,21 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using ShoppingList.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace ShoppingList.Controllers
 {
     public class AdminController : Controller
     {
         //[Authorize]
+        MyDbContext _context = new MyDbContext();
+
+        public AdminController(MyDbContext context)
+        {
+            _context = context;
+        }
+
 
         public IActionResult Panel()
         {
@@ -48,7 +57,8 @@ namespace ShoppingList.Controllers
 		}
         public IActionResult Category()
         {
-            return View();
+            var kategori = _context.Categories.ToList();
+            return View(kategori);
         }
         public IActionResult AddCategory()
         {

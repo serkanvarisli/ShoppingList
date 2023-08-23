@@ -1,4 +1,6 @@
-﻿@{
+﻿@model List<Category>
+
+@{
     Layout = "_AdminLayout"; // Bu satır sayesinde layout kullanılmayacak.
 }
 <table class="table table-striped">
@@ -12,13 +14,15 @@
             </a>
         </th>
         </tr>
+	@foreach (var category in Model)
+    {
             <tr>
-                <td>kategori </td>
+                <td>@category.CategoryName </td>
                 <td class="d-flex justify-content-end">
                     <button class="btn btn-warning">Güncelle</button> 
                     &ensp;
                     <button class="btn btn-danger">Sil</button>
                 </td>
             </tr>
-        
+    }
 </table>
