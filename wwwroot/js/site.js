@@ -3,82 +3,6 @@
 
 // Write your JavaScript code.
 
-//showPassword login page
-
-$(function () {
-    $("#showPassword").change(function () {
-        const checked = $(this).is(":checked");
-        if (checked) {
-            $("#password").attr("type", "text");
-            const metin = document.getElementById("showText").innerHTML;
-
-            // Belirli bir metni değiştir
-            const yeniMetin = metin.replace("Şifreyi Göster ", "Şifreyi Gizle ");
-
-            // Metni güncelle
-            document.getElementById("showText").innerHTML = yeniMetin;
-        } else {
-            $("#password").attr("type", "password");
-            const metin = document.getElementById("showText").innerHTML;
-
-            const yeniMetin = metin.replace("Şifreyi Gizle ", "Şifreyi Göster ");
-
-            // Metni güncelle
-            document.getElementById("showText").innerHTML = yeniMetin;
-        }
-    });
-});
-
-// repassword login page
-$(function () {
-    $("#showPassword").change(function () {
-        const checked = $(this).is(":checked");
-        if (checked) {
-            $("#repassword").attr("type", "text");
-            const metin = document.getElementById("showText").innerHTML;
-
-            // Belirli bir metni değiştir
-            const yeniMetin = metin.replace("Şifreyi Göster ", "Şifreyi Gizle ");
-
-            // Metni güncelle
-            document.getElementById("showText").innerHTML = yeniMetin;
-        } else {
-            $("#repassword").attr("type", "password");
-            const metin = document.getElementById("showText").innerHTML;
-
-            const yeniMetin = metin.replace("Şifreyi Gizle ", "Şifreyi Göster ");
-
-            // Metni güncelle
-            document.getElementById("showText").innerHTML = yeniMetin;
-        }
-    });
-});
-// admin login
-$(function () {
-    $("#showPassword").change(function () {
-        const checked = $(this).is(":checked");
-        if (checked) {
-            $("#adminpassword").attr("type", "text");
-            const metin = document.getElementById("showText").innerHTML;
-
-            // Belirli bir metni değiştir
-            const yeniMetin = metin.replace("Şifreyi Göster ", "Şifreyi Gizle ");
-
-            // Metni güncelle
-            document.getElementById("showText").innerHTML = yeniMetin;
-        } else {
-            $("#adminpassword").attr("type", "password");
-            const metin = document.getElementById("showText").innerHTML;
-
-            const yeniMetin = metin.replace("Şifreyi Gizle ", "Şifreyi Göster ");
-
-            // Metni güncelle
-            document.getElementById("showText").innerHTML = yeniMetin;
-        }
-    });
-});
-
-
 //Ürün detay kontainer
 
 $(document).ready(function () {
@@ -107,23 +31,7 @@ $(document).ready(function () {
 
     });
 });
-window.addEventListener('DOMContentLoaded', event => {
 
-    // Toggle the side navigation
-    const sidebarToggle = document.body.querySelector('#sidebarToggle');
-    if (sidebarToggle) {
-        // Uncomment Below to persist sidebar toggle between refreshes
-        // if (localStorage.getItem('sb|sidebar-toggle') === 'true') {
-        //     document.body.classList.toggle('sb-sidenav-toggled');
-        // }
-        sidebarToggle.addEventListener('click', event => {
-            event.preventDefault();
-            document.body.classList.toggle('sb-sidenav-toggled');
-            localStorage.setItem('sb|sidebar-toggle', document.body.classList.contains('sb-sidenav-toggled'));
-        });
-    }
-
-});
 $(document).ready(function () {
     $('#endShopping').click(function () {
         $('#endShopping').hide();
@@ -165,30 +73,5 @@ saveproduct.addEventListener('click', function () {
 
 });
 
-// sidebar
-/*!
-* Start Bootstrap - Simple Sidebar v6.0.6 (https://startbootstrap.com/template/simple-sidebar)
-* Copyright 2013-2023 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-simple-sidebar/blob/master/LICENSE)
-*/
-// 
-// Scripts
-// 
 
-window.addEventListener('DOMContentLoaded', event => {
 
-    // Toggle the side navigation
-    const sidebarToggle = document.body.querySelector('#sidebarToggle');
-    if (sidebarToggle) {
-        // Uncomment Below to persist sidebar toggle between refreshes
-        // if (localStorage.getItem('sb|sidebar-toggle') === 'true') {
-        //     document.body.classList.toggle('sb-sidenav-toggled');
-        // }
-        sidebarToggle.addEventListener('click', event => {
-            event.preventDefault();
-            document.body.classList.toggle('sb-sidenav-toggled');
-            localStorage.setItem('sb|sidebar-toggle', document.body.classList.contains('sb-sidenav-toggled'));
-        });
-    }
-
-});
