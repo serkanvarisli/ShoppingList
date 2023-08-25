@@ -7,6 +7,7 @@ using ShoppingList.ViewModel;
 
 namespace ShoppingList.Controllers
 {
+    [Authorize(AuthenticationSchemes="AdminAuthentication")]
     public class AdminController : Controller
     {
         //[Authorize]
@@ -16,7 +17,7 @@ namespace ShoppingList.Controllers
         {
             _context = context;
         }
-        public IActionResult Panel()
+        public IActionResult Index()
         {
             return View();
         }
@@ -26,23 +27,7 @@ namespace ShoppingList.Controllers
             return View();
         }
         [HttpGet]
-        public IActionResult Login()
-        {
-            return View();
-        }
-        [HttpPost]
-        public IActionResult Login(AdminLoginViewModel adminLoginViewModel)
-        {
-            if (adminLoginViewModel.adminemail == "admin@gmail.com" && adminLoginViewModel.adminpassword == "admin123")
-            {
-                return RedirectToAction("Panel", "Admin");
-            }
-            else
-            {
-                TempData["ErrorMessage"] = "Kullanıcı adı veya şifre hatalı";
-                return View();
-            }
-        }
+        
         public IActionResult AddProduct()
 		{
 			return View();
@@ -72,12 +57,7 @@ namespace ShoppingList.Controllers
         {
             return View();
         }
-        public IActionResult Logout()
-        {
-            // Oturumu sonlandırma işlemleri
-            HttpContext.SignOutAsync(); // Oturumu sonlandır
-            return RedirectToAction("Login", "Admin"); // Anasayfaya yönlendir
-        }
+        
 
     }
 }
