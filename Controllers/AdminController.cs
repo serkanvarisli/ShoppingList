@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ShoppingList.Models;
 using Microsoft.EntityFrameworkCore;
+using ShoppingList.ViewModel;
 
 namespace ShoppingList.Controllers
 {
@@ -30,9 +31,9 @@ namespace ShoppingList.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Login(string adminemail, string adminpassword)
+        public IActionResult Login(AdminLoginViewModel adminLoginViewModel)
         {
-            if (adminemail == "admin@gmail.com" && adminpassword == "admin123")
+            if (adminLoginViewModel.adminemail == "admin@gmail.com" && adminLoginViewModel.adminpassword == "admin123")
             {
                 return RedirectToAction("Panel", "Admin");
             }
