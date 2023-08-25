@@ -1,4 +1,6 @@
-﻿@{
+﻿@using ShoppingList.ViewModel;
+@model List<AdminProductViewModel>
+@{
     Layout = "_AdminLayout"; // Bu satır sayesinde layout kullanılmayacak.
 }
 <br />
@@ -11,18 +13,23 @@
 <div class="row">
     <center><p><h1>Ürünler</h1></p></center>
     <div class="row">
-        <div class="col-sm-3">
+        @foreach (var product in Model)
+        {
+        <div class="col-sm-2">
             <div class="card" @*style="width: 18rem;"*@>
                 <div class="card-body">
-                    <img class="card-img-top" src="~/images/shoppinglist.jpg" alt="Card image cap">
+                        <img class="card-img-top" src="@product.ProductImage" alt="Card image cap">
                     <center>
-                        <h5 class="card-title">ProductName</h5>
-                        <p class="card-text">Kategori=</p>
+						
+                        <h5 class="card-title">@product.ProductName</h5>
+
+                        <p class="card-text">Kategori= @product.CategoryName</p>
                         <a asp-action="UpdateProduct" asp-controller="Admin" class="btn btn-warning">Ürünü Güncelle</a> <br /><br />
                         <a asp-action="DeleteProduct" asp-controller="Admin" class="btn btn-danger">Ürünü Sil</a>
                     </center>
                 </div>
             </div>
         </div>
+        }
     </div>
 </div>

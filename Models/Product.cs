@@ -13,13 +13,7 @@ public partial class Product
 
     public string? ProductName { get; set; }
 
-    public string? ProductBrand { get; set; }
-
-    public string? ProductQuantity { get; set; }
-
-    public string? ProductDetail { get; set; }
-
-    public byte[]? ProductImage { get; set; }
+    public string? ProductImage { get; set; }
 
     public virtual Category Category { get; set; } = null!;
 

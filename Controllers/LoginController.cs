@@ -12,7 +12,7 @@ namespace ShoppingList.Controllers
 		{
             if (HttpContext.User.Identity.IsAuthenticated)
             {
-                return RedirectToAction("Index", "Admin"); // Kullanıcı kimlik doğrulamasını geçtiyse Admin sayfasına yönlendir
+                return RedirectToAction("Index", "Admin"); 
             }
             return View();
 		}

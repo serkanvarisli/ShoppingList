@@ -21,6 +21,8 @@ public partial class MyDbContext : DbContext
 
     public virtual DbSet<Product> Products { get; set; }
 
+    public virtual DbSet<ProductDetail> ProductDetails { get; set; }
+
     public virtual DbSet<User> Users { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -55,11 +57,8 @@ public partial class MyDbContext : DbContext
             entity.ToTable("Product");
 
             entity.Property(e => e.ProductId).ValueGeneratedNever();
-            entity.Property(e => e.ProductBrand).HasColumnType("ntext");
-            entity.Property(e => e.ProductDetail).HasColumnType("ntext");
-            entity.Property(e => e.ProductImage).HasColumnType("image");
+            entity.Property(e => e.ProductImage).HasColumnType("text");
             entity.Property(e => e.ProductName).HasColumnType("ntext");
-            entity.Property(e => e.ProductQuantity).HasColumnType("ntext");
 
             entity.HasOne(d => d.Category).WithMany(p => p.Products)
                 .HasForeignKey(d => d.CategoryId)
@@ -70,6 +69,28 @@ public partial class MyDbContext : DbContext
                 .HasForeignKey(d => d.ListId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Product_List");
+        });
+
+        modelBuilder.Entity<ProductDetail>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToTable("ProductDetail");
+
+            entity.Property(e => e.ProductBrand).HasColumnType("ntext");
+            entity.Property(e => e.ProductDetail1)
+                .HasMaxLength(10)
+                .IsFixedLength()
+                .HasColumnName("ProductDetail");
+            entity.Property(e => e.ProductId).HasColumnType("ntext");
+            entity.Property(e => e.ProductQuantity)
+                .HasMaxLength(10)
+                .IsFixedLength();
+
+            entity.HasOne(d => d.ProductDetailNavigation).WithMany()
+                .HasForeignKey(d => d.ProductDetailId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_ProductDetail_Product");
         });
 
         modelBuilder.Entity<User>(entity =>

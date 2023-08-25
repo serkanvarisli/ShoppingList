@@ -33,12 +33,16 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\images\\register.jpg",
-      "PackagePath": "staticwebassets\\images\\register.jpg"
+      "Id": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\images\\login\\register.jpg",
+      "PackagePath": "staticwebassets\\images\\login\\register.jpg"
     },
     {
-      "Id": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\images\\shoppinglist.jpg",
-      "PackagePath": "staticwebassets\\images\\shoppinglist.jpg"
+      "Id": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\images\\login\\shoppinglist.jpg",
+      "PackagePath": "staticwebassets\\images\\login\\shoppinglist.jpg"
+    },
+    {
+      "Id": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\images\\products\\tomato.png",
+      "PackagePath": "staticwebassets\\images\\products\\tomato.png"
     },
     {
       "Id": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\js\\admin.js",

@@ -21,10 +21,18 @@ namespace ShoppingList.Controllers
         {
             return View();
         }
-        public IActionResult Product()
+        public IActionResult Product(int categoryid)
         {
+            var product = _context.Products
+                .Select(p => new AdminProductViewModel()
+                {
+                    ProductName = p.ProductName,
+                    ProductImage = p.ProductImage,
+                    CategoryName = p.Category.CategoryName
+                })
+                .ToList();
 
-            return View();
+            return View(product);
         }
         [HttpGet]
         

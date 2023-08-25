@@ -5,5 +5,7 @@
         public string adminemail { get; set; }
 
         public string adminpassword { get; set; }
+
+
     }
 }
