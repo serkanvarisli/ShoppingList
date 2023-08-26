@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "mzgxN9WWinwgXqOQSwJ9Pt6ikCkCaWtGxoOfaJuWoyw=",
+  "Hash": "g4QtLjqG+D49V5GVdaaMV/aVOcVW2FsfB1JALqfpGyQ=",
   "Source": "ShoppingList",
   "BasePath": "_content/ShoppingList",
   "Mode": "Default",
@@ -219,6 +219,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\products\\tomato.png"
+    },
+    {
+      "Identity": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\js\\addproduct.js",
+      "SourceId": "ShoppingList",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\",
+      "BasePath": "_content/ShoppingList",
+      "RelativePath": "js/addproduct.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\addproduct.js"
     },
     {
       "Identity": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\js\\admin.js",

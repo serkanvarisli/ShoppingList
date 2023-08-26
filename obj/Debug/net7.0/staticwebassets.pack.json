@@ -45,6 +45,10 @@
       "PackagePath": "staticwebassets\\images\\products\\tomato.png"
     },
     {
+      "Id": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\js\\addproduct.js",
+      "PackagePath": "staticwebassets\\js\\addproduct.js"
+    },
+    {
       "Id": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\js\\admin.js",
       "PackagePath": "staticwebassets\\js\\admin.js"
     },

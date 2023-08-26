@@ -19,10 +19,17 @@
             <tr>
                 <td>@category.CategoryName </td>
                 <td class="d-flex justify-content-end">
-                    <button class="btn btn-warning">Güncelle</button> 
+                <a asp-action="UpdateCategory" asp-controller="Admin" asp-route-categoryId="@category.CategoryId">
+                    <button class="btn btn-warning">Güncelle</button>
+                </a> 
+
                     &ensp;
+                <a asp-action="DeleteCategory" asp-controller="Admin" asp-route-categoryId="@category.CategoryId" onclick="return confirm('@category.CategoryName adlı kategoriyi gerçekten silmek istiyor musunuz?')">
                     <button class="btn btn-danger">Sil</button>
+                </a>
                 </td>
             </tr>
     }
+
 </table>
+@TempData["ErrorMessage"]

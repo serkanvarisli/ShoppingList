@@ -13,7 +13,9 @@ namespace ShoppingList.Controllers
         //[Authorize]
         MyDbContext _context;
 
-        public AdminController(MyDbContext context)
+		public object PageUtility { get; private set; }
+
+		public AdminController(MyDbContext context)
         {
             _context = context;
         }
@@ -71,13 +73,32 @@ namespace ShoppingList.Controllers
                 return RedirectToAction("Category","Admin");
                
         }
-        public IActionResult UpdateCategory()
+        [HttpGet]
+        public IActionResult UpdateCategory(int categoryId)
         {
-            return View();
+            var category = _context.Categories.FirstOrDefault(c => c.CategoryId == categoryId);
+			return View(category);
         }
-        public IActionResult DeleteCategory()
+        [HttpPost]
+		public IActionResult UpdateCategory(Category category)
+		{
+			if (_context.Categories.Any(c => c.CategoryName == category.CategoryName))
+			{
+				TempData["ErrorMessage"] = "Kategori zaten var";
+				return RedirectToAction("Category", "Admin");
+			}
+			_context.Categories.Update(category);
+			_context.SaveChanges();
+            TempData["SuccessMessage"] = "Kategori güncellendi";
+			return RedirectToAction("Category", "Admin");
+		}
+
+        public IActionResult DeleteCategory(int categoryId)
         {
-            return View();
+            var category = _context.Categories.Find(categoryId); ;
+            _context.Categories.Remove(category);
+            _context.SaveChanges();
+            return RedirectToAction("Category", "Admin");
         }
         
 
