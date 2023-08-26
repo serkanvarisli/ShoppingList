@@ -53,10 +53,24 @@ namespace ShoppingList.Controllers
             var kategori = _context.Categories.ToList();
             return View(kategori);
         }
+        [HttpGet]
         public IActionResult AddCategory()
         {
             return View();
-        }    
+        }
+        [HttpPost]
+        public IActionResult AddCategory(Category category)
+        {
+            if(_context.Categories.Any(c => c.CategoryName == category.CategoryName))
+            {
+				TempData["ErrorMessage"] = "Kategori zaten var";
+				return RedirectToAction("AddCategory", "Admin");
+			}
+			_context.Categories.Add(category);
+                _context.SaveChanges();
+                return RedirectToAction("Category","Admin");
+               
+        }
         public IActionResult UpdateCategory()
         {
             return View();

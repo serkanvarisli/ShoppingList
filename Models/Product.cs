@@ -18,4 +18,6 @@ public partial class Product
     public virtual Category Category { get; set; } = null!;
 
     public virtual List List { get; set; } = null!;
+
+    public virtual ICollection<ProductDetail> ProductDetails { get; set; } = new List<ProductDetail>();
 }

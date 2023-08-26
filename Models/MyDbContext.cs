@@ -35,16 +35,14 @@ public partial class MyDbContext : DbContext
         {
             entity.ToTable("Category");
 
-            entity.Property(e => e.CategoryId).ValueGeneratedNever();
-            entity.Property(e => e.CategoryName).HasColumnType("text");
+            entity.Property(e => e.CategoryName).IsUnicode(false);
         });
 
         modelBuilder.Entity<List>(entity =>
         {
             entity.ToTable("List");
 
-            entity.Property(e => e.ListId).ValueGeneratedNever();
-            entity.Property(e => e.ListName).HasColumnType("ntext");
+            entity.Property(e => e.ListName).IsUnicode(false);
 
             entity.HasOne(d => d.User).WithMany(p => p.Lists)
                 .HasForeignKey(d => d.UserId)
@@ -56,9 +54,8 @@ public partial class MyDbContext : DbContext
         {
             entity.ToTable("Product");
 
-            entity.Property(e => e.ProductId).ValueGeneratedNever();
-            entity.Property(e => e.ProductImage).HasColumnType("text");
-            entity.Property(e => e.ProductName).HasColumnType("ntext");
+            entity.Property(e => e.ProductImage).IsUnicode(false);
+            entity.Property(e => e.ProductName).IsUnicode(false);
 
             entity.HasOne(d => d.Category).WithMany(p => p.Products)
                 .HasForeignKey(d => d.CategoryId)
@@ -73,22 +70,16 @@ public partial class MyDbContext : DbContext
 
         modelBuilder.Entity<ProductDetail>(entity =>
         {
-            entity
-                .HasNoKey()
-                .ToTable("ProductDetail");
+            entity.ToTable("ProductDetail");
 
-            entity.Property(e => e.ProductBrand).HasColumnType("ntext");
+            entity.Property(e => e.ProductBrand).IsUnicode(false);
             entity.Property(e => e.ProductDetail1)
-                .HasMaxLength(10)
-                .IsFixedLength()
+                .IsUnicode(false)
                 .HasColumnName("ProductDetail");
-            entity.Property(e => e.ProductId).HasColumnType("ntext");
-            entity.Property(e => e.ProductQuantity)
-                .HasMaxLength(10)
-                .IsFixedLength();
+            entity.Property(e => e.ProductQuantity).IsUnicode(false);
 
-            entity.HasOne(d => d.ProductDetailNavigation).WithMany()
-                .HasForeignKey(d => d.ProductDetailId)
+            entity.HasOne(d => d.Product).WithMany(p => p.ProductDetails)
+                .HasForeignKey(d => d.ProductId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_ProductDetail_Product");
         });
@@ -97,11 +88,10 @@ public partial class MyDbContext : DbContext
         {
             entity.ToTable("User");
 
-            entity.Property(e => e.UserId).ValueGeneratedNever();
-            entity.Property(e => e.Password).HasColumnType("ntext");
-            entity.Property(e => e.UserEmail).HasColumnType("ntext");
-            entity.Property(e => e.UserName).HasColumnType("ntext");
-            entity.Property(e => e.UserSurname).HasColumnType("ntext");
+            entity.Property(e => e.Password).IsUnicode(false);
+            entity.Property(e => e.UserEmail).IsUnicode(false);
+            entity.Property(e => e.UserName).IsUnicode(false);
+            entity.Property(e => e.UserSurname).IsUnicode(false);
         });
 
         OnModelCreatingPartial(modelBuilder);

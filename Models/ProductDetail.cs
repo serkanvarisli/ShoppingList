@@ -7,7 +7,7 @@ public partial class ProductDetail
 {
     public int ProductDetailId { get; set; }
 
-    public string? ProductId { get; set; }
+    public int ProductId { get; set; }
 
     public string? ProductBrand { get; set; }
 
@@ -15,5 +15,5 @@ public partial class ProductDetail
 
     public string? ProductDetail1 { get; set; }
 
-    public virtual Product ProductDetailNavigation { get; set; } = null!;
+    public virtual Product Product { get; set; } = null!;
 }
