@@ -45,6 +45,10 @@
       "PackagePath": "staticwebassets\\images\\products\\bread.png"
     },
     {
+      "Id": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\images\\products\\mobilephone_79875.png",
+      "PackagePath": "staticwebassets\\images\\products\\mobilephone_79875.png"
+    },
+    {
       "Id": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\images\\products\\pant.png",
       "PackagePath": "staticwebassets\\images\\products\\pant.png"
     },

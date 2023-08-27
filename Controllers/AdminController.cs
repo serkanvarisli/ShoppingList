@@ -5,6 +5,7 @@ using ShoppingList.Models;
 using Microsoft.EntityFrameworkCore;
 using ShoppingList.ViewModel;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Http;
 
 namespace ShoppingList.Controllers
 {
@@ -51,7 +52,7 @@ namespace ShoppingList.Controllers
             return View();
 		}
         [HttpPost]
-        public IActionResult AddProduct(AdminAddFileViewModel adminAddFileViewModel)
+        public async Task <IActionResult> AddProduct(AdminAddFileViewModel adminAddFileViewModel,IFormFile fileUpload)
         {
             if (_context.Products.Any(c => c.ProductName == adminAddFileViewModel.ProductName))
             {
@@ -61,9 +62,23 @@ namespace ShoppingList.Controllers
             var product = new Product
             {
                 ProductName = adminAddFileViewModel.ProductName,
-                ProductImage = adminAddFileViewModel.ProductImage,
+                //ProductImage = adminAddFileViewModel.ProductImage,
                 CategoryId = adminAddFileViewModel.CategoryId
             };
+
+            if (fileUpload!=null)
+            {
+                var localPath = "/wwwroot/images/products/";
+                var path = Path.Join(Directory.GetCurrentDirectory(), localPath, fileUpload.FileName);
+                await using (var stream = new FileStream(path, FileMode.Create))
+                {
+                    await fileUpload.CopyToAsync(stream);
+                }
+                
+                product.ProductImage = fileUpload.FileName;
+            }
+
+            
 
             // Ürünü veritabanına kaydetme
             _context.Products.Add(product);

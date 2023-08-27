@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "tcxhOHLcqSMfB2X69QAboQFwUt2HMuVzA30Encdp8tg=",
+  "Hash": "xgG0iM8vCKK93jgoInRlOLtIJjKguJ2uDFCzflo5dzE=",
   "Source": "ShoppingList",
   "BasePath": "_content/ShoppingList",
   "Mode": "Default",
@@ -219,6 +219,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\products\\bread.png"
+    },
+    {
+      "Identity": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\images\\products\\mobilephone_79875.png",
+      "SourceId": "ShoppingList",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\",
+      "BasePath": "_content/ShoppingList",
+      "RelativePath": "images/products/mobilephone_79875.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\products\\mobilephone_79875.png"
     },
     {
       "Identity": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\images\\products\\pant.png",
