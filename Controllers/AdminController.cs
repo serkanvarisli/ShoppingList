@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using ShoppingList.Models;
 using Microsoft.EntityFrameworkCore;
 using ShoppingList.ViewModel;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace ShoppingList.Controllers
 {
@@ -40,7 +41,14 @@ namespace ShoppingList.Controllers
         
         public IActionResult AddProduct()
 		{
-			return View();
+            var categories = _context.Categories.Select(c => new SelectListItem
+            {
+                Value = c.CategoryId.ToString(),
+                Text = c.CategoryName
+            }).ToList();
+
+            ViewBag.Categories = categories;
+            return View();
 		}
         [HttpPost]
         public IActionResult AddProduct(AdminAddFileViewModel adminAddFileViewModel)
@@ -66,6 +74,14 @@ namespace ShoppingList.Controllers
         [HttpGet]
         public IActionResult UpdateProduct(int productId)
         {
+            var categories = _context.Categories.Select(c => new SelectListItem
+            {
+                Value = c.CategoryId.ToString(),
+                Text = c.CategoryName
+            }).ToList();
+
+            ViewBag.Categories = categories;
+
             var product = _context.Products.FirstOrDefault(p => p.ProductId == productId);
 
             if (product == null)
@@ -88,7 +104,11 @@ namespace ShoppingList.Controllers
         [HttpPost]
         public IActionResult UpdateProduct(AdminAddFileViewModel viewModel)
         {
-                        
+            if (_context.Products.Any(c => c.ProductName == viewModel.ProductName))
+            {
+                TempData["ErrorMessage"] = "Ürün zaten var";
+                return RedirectToAction("AddCategory", "Admin");
+            }
             var product = _context.Products.FirstOrDefault(p => p.ProductId == viewModel.ProductId);
 
             if (product == null)
@@ -105,6 +125,7 @@ namespace ShoppingList.Controllers
             _context.SaveChanges(); // Veritabanını güncelle
                 
             return RedirectToAction("Product","Admin"); // Güncelleme tamamlandığında bir başka sayfaya yönlendir
+
         }
 
         public IActionResult DeleteProduct(AdminAddFileViewModel adminEditFileViewModel)
