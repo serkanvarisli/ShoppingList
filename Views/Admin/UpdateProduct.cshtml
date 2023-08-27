@@ -1,1 +1,23 @@
-﻿Product update page
+﻿@using ShoppingList.ViewModel;
+@model AdminAddFileViewModel;
+@{
+    Layout = "_AdminLayout"; // Bu satır sayesinde layout kullanılmayacak.
+}
+<br />
+<div class="d-flex justify-content-center">
+    <h2>Ürün Güncelle</h2>
+</div>
+<p>ad:@Model.ProductName</p>
+
+<form method="post" asp-action="UpdateProduct" asp-controller="Admin">
+    <input type="hidden" asp-for="ProductId" />
+
+	@*Ürün Adı: <p>@Model.ProductName</p>*@
+    <b>Ürün Resmi:</b><input type="file" asp-for="ProductImage" class="form-control" />
+    <br />
+    <b>Ürün Adı:</b><input type="text" asp-for="ProductName" class="form-control" />
+    <br />
+    <b>Kategori:</b><input type="text" asp-for="CategoryId" class="form-control" />
+    <button type="submit" class="btn btn-success form-control">Kaydet</button>
+
+</form>

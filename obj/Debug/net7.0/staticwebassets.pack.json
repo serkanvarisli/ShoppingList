@@ -41,8 +41,24 @@
       "PackagePath": "staticwebassets\\images\\login\\shoppinglist.jpg"
     },
     {
+      "Id": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\images\\products\\bread.png",
+      "PackagePath": "staticwebassets\\images\\products\\bread.png"
+    },
+    {
+      "Id": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\images\\products\\pant.png",
+      "PackagePath": "staticwebassets\\images\\products\\pant.png"
+    },
+    {
       "Id": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\images\\products\\tomato.png",
       "PackagePath": "staticwebassets\\images\\products\\tomato.png"
+    },
+    {
+      "Id": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\images\\products\\tshirt.png",
+      "PackagePath": "staticwebassets\\images\\products\\tshirt.png"
+    },
+    {
+      "Id": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\images\\products\\water.png",
+      "PackagePath": "staticwebassets\\images\\products\\water.png"
     },
     {
       "Id": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\js\\addproduct.js",

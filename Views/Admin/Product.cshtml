@@ -1,5 +1,5 @@
 ﻿@using ShoppingList.ViewModel;
-@model List<AdminProductViewModel>
+@model List<AdminAddFileViewModel>
 @{
     Layout = "_AdminLayout"; // Bu satır sayesinde layout kullanılmayacak.
 }
@@ -15,17 +15,22 @@
     <div class="row">
         @foreach (var product in Model)
         {
+            <input type="hidden" asp-for="@product.ProductId">
         <div class="col-sm-2">
             <div class="card" @*style="width: 18rem;"*@>
                 <div class="card-body">
-                        <img class="card-img-top" src="@product.ProductImage" alt="Card image cap">
+                        <img class="card-img-top" src="/images/products/@product.ProductImage" alt="Card image cap">
                     <center>
 						
                         <h5 class="card-title">@product.ProductName</h5>
 
                         <p class="card-text">Kategori= @product.CategoryName</p>
-                        <a asp-action="UpdateProduct" asp-controller="Admin" class="btn btn-warning">Ürünü Güncelle</a> <br /><br />
-                        <a asp-action="DeleteProduct" asp-controller="Admin" class="btn btn-danger">Ürünü Sil</a>
+                            <a asp-action="UpdateProduct" asp-controller="Admin" asp-route-productId="@product.ProductId">
+                                <button class="btn btn-warning">Güncelle</button>
+                            </a>
+                            <a asp-action="DeleteProduct" asp-controller="Admin" asp-route-productId="@product.ProductId" onclick="return confirm('@product.ProductName adlı kategoriyi gerçekten silmek istiyor musunuz?')">
+                                <button class="btn btn-danger">Sil</button>
+                            </a>
                     </center>
                 </div>
             </div>
@@ -33,3 +38,4 @@
         }
     </div>
 </div>
+@TempData["hata"]

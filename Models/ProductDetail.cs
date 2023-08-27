@@ -9,6 +9,8 @@ public partial class ProductDetail
 
     public int ProductId { get; set; }
 
+    public int ListId { get; set; }
+
     public string? ProductBrand { get; set; }
 
     public string? ProductQuantity { get; set; }

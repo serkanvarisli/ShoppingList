@@ -61,11 +61,6 @@ public partial class MyDbContext : DbContext
                 .HasForeignKey(d => d.CategoryId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Product_Category");
-
-            entity.HasOne(d => d.List).WithMany(p => p.Products)
-                .HasForeignKey(d => d.ListId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Product_List");
         });
 
         modelBuilder.Entity<ProductDetail>(entity =>

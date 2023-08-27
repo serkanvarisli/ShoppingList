@@ -1,15 +1,18 @@
-﻿@{
+﻿@using ShoppingList.ViewModel;
+@model AdminAddFileViewModel;
+@{
     Layout = "_AdminLayout"; // Bu satır sayesinde layout kullanılmayacak.
 }
 <br />
 <div class="d-flex justify-content-center">
 <h2>Ürün Ekle</h2>
 </div>
-<form>
-    <b>Ürün Resmi:</b><input type="file" class="form-control" />
+<form method="post" asp-action="AddProduct" >
+    <b>Ürün Resmi:</b><input type="file" asp-for="ProductImage" class="form-control" />
     <br />
-    <b>Ürün Adı:</b><input type="text" class="form-control" />
+    <b>Ürün Adı:</b><input type="text" asp-for="ProductName" class="form-control" />
     <br />
+    <b>Kategori:</b><input type="text" asp-for="CategoryId" class="form-control" />
 	<button type="submit" class="btn btn-success form-control">Ekle</button>
-
+    @TempData["ErrorMessage"]
 </form>
