@@ -84,6 +84,7 @@ public partial class MyDbContext : DbContext
             entity.ToTable("User");
 
             entity.Property(e => e.Password).IsUnicode(false);
+            entity.Property(e => e.RePassword).IsUnicode(false);
             entity.Property(e => e.UserEmail).IsUnicode(false);
             entity.Property(e => e.UserName).IsUnicode(false);
             entity.Property(e => e.UserSurname).IsUnicode(false);
