@@ -2,7 +2,7 @@ $(function () {
     $("#showPassword").change(function () {
         const checked = $(this).is(":checked");
         if (checked) {
-            $("#password").attr("type", "text");
+            $("#Password").attr("type", "text");
             const metin = document.getElementById("showText").innerHTML;
 
             // Belirli bir metni deðiþtir
@@ -11,7 +11,7 @@ $(function () {
             // Metni güncelle
             document.getElementById("showText").innerHTML = yeniMetin;
         } else {
-            $("#password").attr("type", "password");
+            $("#Password").attr("type", "password");
             const metin = document.getElementById("showText").innerHTML;
 
             const yeniMetin = metin.replace("Þifreyi Gizle ", "Þifreyi Göster ");

@@ -1,6 +1,9 @@
 ﻿@model User
 
 <link rel="stylesheet" href="~/css/register.css" />
+@{
+    Layout = "_LoginLayout";
+}
 
 <div id="main-wrapper" class="container">
     <div class="row justify-content-center">
@@ -41,19 +44,19 @@
                                         <label for="repassword">Şifre Tekrarı</label>
                                         <input type="password" class="form-control" id="repassword" asp-for="RePassword" required>
                                         @Html.ValidationMessageFor(m => m.RePassword, "", new { @class = "text-danger" })
-                                        <br />
+                                        <br>
 
                                         <span name="showText" id="showText" class="textShowPassword">Şifreyi Göster </span>
                                         <input type="checkbox" name="showPassword" id="showPassword"  />
                                     </div>
                                     <button type="submit" class="btn btn-theme">Üye Ol</button>
-                                    <br />
+                                    @TempData["ErrorMessage"]
+                                    @TempData["SuccessMessage"]
                                    <div class="validation-summary">
                                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                                 </div>
                                 </form>
-                                @TempData["ErrorMessage"]
-                                @TempData["SuccessMessage"]
+                               
                                 
                             </div>
                         </div>

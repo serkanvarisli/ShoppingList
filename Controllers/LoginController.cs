@@ -9,7 +9,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ShoppingList.Controllers
 {
-    [Authorize(AuthenticationSchemes = "AdminAuthentication")]
+    [Authorize]
+
     public class LoginController : Controller
 	{
         MyDbContext _context;
@@ -20,9 +21,42 @@ namespace ShoppingList.Controllers
             _context = context;
         }
         [AllowAnonymous]
+        [Authorize(AuthenticationSchemes = "UserAuthentication")]
+
         public IActionResult Index()
 		{
+            if (HttpContext.User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             return View();
+        }
+        [AllowAnonymous]
+        [HttpPost]
+        public async Task <IActionResult> Index(User model)
+        {
+            var user = _context.Users.FirstOrDefault(c => c.UserEmail == model.UserEmail && c.Password == model.Password);
+            if (user!=null)
+            {
+                await HttpContext.SignOutAsync("UserAuthentication");
+
+                List<Claim> claims = new List<Claim>();
+                claims.Add(new Claim(ClaimTypes.NameIdentifier, model.UserEmail));
+
+
+                ClaimsIdentity identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                ClaimsPrincipal principal = new ClaimsPrincipal(identity);
+
+                await HttpContext.SignInAsync("UserAuthentication", principal, new AuthenticationProperties() { IsPersistent = false });
+
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                TempData["ErrorMessage"] = "Kullanıcı adı veya şifre hatalı";
+
+            }
+            return View(model);
         }
         [AllowAnonymous]
         [HttpGet]
@@ -53,7 +87,15 @@ namespace ShoppingList.Controllers
 
             }
         }
+        [AllowAnonymous]
+        public IActionResult Logout()
+        {
+            // Oturumu sonlandırma işlemleri
+            HttpContext.SignOutAsync("UserAuthentication"); // Oturumu sonlandır
+            return RedirectToAction("Index", "Home"); // Anasayfaya yönlendir
+        }
 
+        [Authorize(AuthenticationSchemes = "AdminAuthentication")]
         [AllowAnonymous]
 
         public IActionResult Admin()
