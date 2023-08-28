@@ -9,11 +9,11 @@
 </div>
 <p>ad:@Model.ProductName</p>
 
-<form method="post" asp-action="UpdateProduct" asp-controller="Admin">
+<form method="post" asp-action="UpdateProduct" asp-controller="Admin" enctype="multipart/form-data">
     <input type="hidden" asp-for="ProductId" />
 
 	@*Ürün Adı: <p>@Model.ProductName</p>*@
-    <b>Ürün Resmi:</b><input type="file" asp-for="ProductImage" class="form-control" />
+    <b>Ürün Resmi:</b><input type="file" @*asp-for="ProductImage"*@ name="fileUpload" class="form-control" accept=".png,.jpeg,.jpg" />
     <br />
     <b>Ürün Adı:</b><input type="text" asp-for="ProductName" class="form-control" />
     <br />

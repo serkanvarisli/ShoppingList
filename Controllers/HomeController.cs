@@ -4,6 +4,7 @@ using ShoppingList.Models;
 
 namespace ShoppingList.Controllers
 {
+
 	public class HomeController : Controller
 	{
         //[Authorize]

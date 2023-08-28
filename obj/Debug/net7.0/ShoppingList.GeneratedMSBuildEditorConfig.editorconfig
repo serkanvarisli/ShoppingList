@@ -9,97 +9,97 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ShoppingList
 build_property.RootNamespace = ShoppingList
-build_property.ProjectDir = d:\Codding\Programming\.net\ShoppingList\ShoppingList\
+build_property.ProjectDir = D:\Codding\Programming\.net\ShoppingList\ShoppingList\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = d:\Codding\Programming\.net\ShoppingList\ShoppingList
+build_property.MSBuildProjectDirectory = D:\Codding\Programming\.net\ShoppingList\ShoppingList
 build_property._RazorSourceGeneratorDebug = 
 
-[d:/Codding/Programming/.net/ShoppingList/ShoppingList/Views/Admin/AddCategory.cshtml]
+[D:/Codding/Programming/.net/ShoppingList/ShoppingList/Views/Admin/AddCategory.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRkQ2F0ZWdvcnkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Codding/Programming/.net/ShoppingList/ShoppingList/Views/Admin/AddProduct.cshtml]
+[D:/Codding/Programming/.net/ShoppingList/ShoppingList/Views/Admin/AddProduct.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRkUHJvZHVjdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Codding/Programming/.net/ShoppingList/ShoppingList/Views/Admin/Category.cshtml]
+[D:/Codding/Programming/.net/ShoppingList/ShoppingList/Views/Admin/Category.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ2F0ZWdvcnkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Codding/Programming/.net/ShoppingList/ShoppingList/Views/Admin/Index.cshtml]
+[D:/Codding/Programming/.net/ShoppingList/ShoppingList/Views/Admin/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Codding/Programming/.net/ShoppingList/ShoppingList/Views/Admin/Product.cshtml]
+[D:/Codding/Programming/.net/ShoppingList/ShoppingList/Views/Admin/Product.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUHJvZHVjdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Codding/Programming/.net/ShoppingList/ShoppingList/Views/Admin/UpdateCategory.cshtml]
+[D:/Codding/Programming/.net/ShoppingList/ShoppingList/Views/Admin/UpdateCategory.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVXBkYXRlQ2F0ZWdvcnkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Codding/Programming/.net/ShoppingList/ShoppingList/Views/Admin/UpdateProduct.cshtml]
+[D:/Codding/Programming/.net/ShoppingList/ShoppingList/Views/Admin/UpdateProduct.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVXBkYXRlUHJvZHVjdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Codding/Programming/.net/ShoppingList/ShoppingList/Views/Home/AddList.cshtml]
+[D:/Codding/Programming/.net/ShoppingList/ShoppingList/Views/Home/AddList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBZGRMaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Codding/Programming/.net/ShoppingList/ShoppingList/Views/Home/AddProduct.cshtml]
+[D:/Codding/Programming/.net/ShoppingList/ShoppingList/Views/Home/AddProduct.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBZGRQcm9kdWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Codding/Programming/.net/ShoppingList/ShoppingList/Views/Home/Index.cshtml]
+[D:/Codding/Programming/.net/ShoppingList/ShoppingList/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Codding/Programming/.net/ShoppingList/ShoppingList/Views/Home/List.cshtml]
+[D:/Codding/Programming/.net/ShoppingList/ShoppingList/Views/Home/List.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Codding/Programming/.net/ShoppingList/ShoppingList/Views/Home/Product.cshtml]
+[D:/Codding/Programming/.net/ShoppingList/ShoppingList/Views/Home/Product.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcm9kdWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Codding/Programming/.net/ShoppingList/ShoppingList/Views/Home/ProductReadOnly.cshtml]
+[D:/Codding/Programming/.net/ShoppingList/ShoppingList/Views/Home/ProductReadOnly.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcm9kdWN0UmVhZE9ubHkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Codding/Programming/.net/ShoppingList/ShoppingList/Views/Login/Admin.cshtml]
+[D:/Codding/Programming/.net/ShoppingList/ShoppingList/Views/Login/Admin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cQWRtaW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Codding/Programming/.net/ShoppingList/ShoppingList/Views/Login/Index.cshtml]
+[D:/Codding/Programming/.net/ShoppingList/ShoppingList/Views/Login/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Codding/Programming/.net/ShoppingList/ShoppingList/Views/Login/Register.cshtml]
+[D:/Codding/Programming/.net/ShoppingList/ShoppingList/Views/Login/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cUmVnaXN0ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Codding/Programming/.net/ShoppingList/ShoppingList/Views/Shared/Error.cshtml]
+[D:/Codding/Programming/.net/ShoppingList/ShoppingList/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Codding/Programming/.net/ShoppingList/ShoppingList/Views/Shared/_AdminLayout.cshtml]
+[D:/Codding/Programming/.net/ShoppingList/ShoppingList/Views/Shared/_AdminLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZG1pbkxheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Codding/Programming/.net/ShoppingList/ShoppingList/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/Codding/Programming/.net/ShoppingList/ShoppingList/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Codding/Programming/.net/ShoppingList/ShoppingList/Views/_ViewImports.cshtml]
+[D:/Codding/Programming/.net/ShoppingList/ShoppingList/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Codding/Programming/.net/ShoppingList/ShoppingList/Views/_ViewStart.cshtml]
+[D:/Codding/Programming/.net/ShoppingList/ShoppingList/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Codding/Programming/.net/ShoppingList/ShoppingList/Views/Shared/_Layout.cshtml]
+[D:/Codding/Programming/.net/ShoppingList/ShoppingList/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-3yv3qq2gax

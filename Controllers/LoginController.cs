@@ -3,27 +3,35 @@ using Microsoft.AspNetCore.Authentication;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc;
 using ShoppingList.ViewModel;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ShoppingList.Controllers
 {
-	public class LoginController : Controller
+    [Authorize(AuthenticationSchemes = "AdminAuthentication")]
+    public class LoginController : Controller
 	{
-		public IActionResult Index()
+        
+        public IActionResult Index()
 		{
+            return View();
+
+        }
+        public IActionResult Register()
+		{
+			return View();
+		}
+        [AllowAnonymous]
+
+        public IActionResult Admin()
+        {
             if (HttpContext.User.Identity.IsAuthenticated)
             {
                 return RedirectToAction("Index", "Admin"); 
             }
             return View();
-		}
-		public IActionResult Register()
-		{
-			return View();
-		}
-        public IActionResult Admin()
-        {
-            return View();
         }
+        [AllowAnonymous]
+
         [HttpPost]
         public async Task<IActionResult> Admin(AdminLoginViewModel model)
         {
@@ -48,6 +56,7 @@ namespace ShoppingList.Controllers
             }
             return View(model);
         }
+        [AllowAnonymous]
         public IActionResult AdminLogout()
         {
             // Oturumu sonlandırma işlemleri

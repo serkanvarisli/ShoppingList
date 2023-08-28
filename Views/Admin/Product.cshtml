@@ -16,18 +16,17 @@
         @foreach (var product in Model)
         {
             <input type="hidden" asp-for="@product.ProductId">
-        <div class="col-sm-2">
-            <div class="card" @*style="width: 18rem;"*@>
+        <div class="col-sm-2" style="padding:10px">
+                <div class="card border-4" >
                 <div class="card-body">
                         <img class="card-img-top" src="/images/products/@product.ProductImage" alt="Card image cap">
                     <center>
-						
-                        <h5 class="card-title">@product.ProductName</h5>
-
-                        <p class="card-text">Kategori= @product.CategoryName</p>
+                            <h5 class="card-title" >@product.ProductName</h5>
+                            <p class="card-text" style="font-size:15px;">Kategori= @product.CategoryName</p>
                             <a asp-action="UpdateProduct" asp-controller="Admin" asp-route-productId="@product.ProductId">
                                 <button class="btn btn-warning">Güncelle</button>
                             </a>
+                            <br>
                             <a asp-action="DeleteProduct" asp-controller="Admin" asp-route-productId="@product.ProductId" onclick="return confirm('@product.ProductName adlı kategoriyi gerçekten silmek istiyor musunuz?')">
                                 <button class="btn btn-danger">Sil</button>
                             </a>
