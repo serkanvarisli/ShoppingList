@@ -41,14 +41,13 @@ namespace ShoppingList.Controllers
                 await HttpContext.SignOutAsync("UserAuthentication");
 
                 List<Claim> claims = new List<Claim>();
-                claims.Add(new Claim(ClaimTypes.NameIdentifier, model.UserEmail));
-
+                claims.Add(new Claim(ClaimTypes.Name, model.UserEmail));
 
                 ClaimsIdentity identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                 ClaimsPrincipal principal = new ClaimsPrincipal(identity);
 
                 await HttpContext.SignInAsync("UserAuthentication", principal, new AuthenticationProperties() { IsPersistent = false });
-
+                Response.Cookies.Append("UserEmail", model.UserEmail);
                 return RedirectToAction("Index", "Home");
             }
             else

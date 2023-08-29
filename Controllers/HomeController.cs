@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using ShoppingList.Models;
+using ShoppingList.ViewModel;
 
 namespace ShoppingList.Controllers
 {
@@ -16,9 +18,19 @@ namespace ShoppingList.Controllers
         }
         public IActionResult Index()
 		{
-            var lists = _context.Lists.ToList();
+            string username = User.Identity.Name;
 
-            return View(lists);
+            // Kullanıcı adına ait veriyi veritabanından çekme
+            var kullaniciListe = _context.Lists
+                .Include(l => l.User)
+                .Where(l => l.User.UserEmail == username)
+                .Select(l => new UserListsViewModel
+                {
+                    ListName=l.ListName,
+                })
+                .ToList();
+
+            return View(kullaniciListe);
 		}
 
         public IActionResult List()
