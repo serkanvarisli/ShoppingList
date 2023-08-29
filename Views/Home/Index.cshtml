@@ -9,6 +9,7 @@
         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AddList">YENİ LİSTE OLUŞTUR</a>
     </li>
 }
+
 <div class="container">
 <div class="row">
     <div class="col">
@@ -29,11 +30,18 @@
                     <div class="card-body ">
                         <h5 class="card-title">@list.ListName</h5>
                         <a asp-action="list" asp-controller="Home" class="btn btn-primary">Listeye gitmek için tıklayın</a>
+                        <p></p>
+                        <a asp-action="DeleteList" asp-controller="Home" asp-route-ListId="@list.ListId" onclick="return confirm('@list.ListName adlı listeyi gerçekten silmek istiyor musunuz?')">
+                            <button class="btn btn-danger">Listeyi Sil</button>
+                        </a>
                     </div>
             </center>
         </div>
         </div>
-
+       
+    }
+    @section user {
+        <span class="dropdown-item-text text text-black-50">@TempData["username"]</span>
     }
 </div>
 <br />

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using System.Collections.Generic;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ShoppingList.Models;
@@ -19,17 +20,17 @@ namespace ShoppingList.Controllers
         public IActionResult Index()
 		{
             string username = User.Identity.Name;
-
-            // Kullanıcı adına ait veriyi veritabanından çekme
+            TempData["username"] = username;
             var kullaniciListe = _context.Lists
                 .Include(l => l.User)
                 .Where(l => l.User.UserEmail == username)
                 .Select(l => new UserListsViewModel
                 {
-                    ListName=l.ListName,
+                    ListName = l.ListName,
+                    ListId = l.ListId,
                 })
                 .ToList();
-
+            
             return View(kullaniciListe);
 		}
 
@@ -62,9 +63,28 @@ namespace ShoppingList.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index", "Home");
         }
-        public IActionResult DeleteList()
+        [AllowAnonymous]
+        public IActionResult DeleteList(UserListsViewModel user)
         {
-            return View();
+            var ListToDelete = _context.Lists
+                //.Include(l => l.ProductDetails)
+                .Where(p => p.ListId == user.ListId).SingleOrDefault();
+
+            if (ListToDelete == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                //// Önce productDetail tablosundaki ilişkili kayıtları silin
+                //_context.ProductDetails.RemoveRange(ListToDelete.ProductDetails);
+
+                // Ardından ana listenin kaydını silin
+                _context.Lists.Remove(ListToDelete);
+
+                _context.SaveChanges();
+                return RedirectToAction("Index", "Home");
+            }
         }
 
         public IActionResult Product()
