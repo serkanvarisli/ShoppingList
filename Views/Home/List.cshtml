@@ -1,4 +1,7 @@
-﻿@section nav{
+﻿@*@using ShoppingList.ViewModel
+@model List<Product>*@
+
+@section nav{
     <li class="nav-item">
         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">LİSTELERİM</a>
     </li>
@@ -23,34 +26,35 @@
             
         </div>
     </div>
-
+    
         <center><h3>ÜRÜNLER</h3></center>
     <div class="row">
-        <div class="col-sm-2">
-            <div class="card">
-                <div class="card-body">               
-                    <img class="card-img-top img-fluid" src="/images/register.jpg" alt="Card image cap">
-                    <center>
-                        <h5 class="card-title">Ürün Adı</h5>
-                        <div id="bought" style="display:none;">
-                            <span>Aldım </span><input type="checkbox" />
-                        </div>
-                        <p></p>
-                        <a asp-action="Product" asp-controller="Home">
-                            <button type="button" class="btn btn-primary" id="beforeShopping" />Ürün Detayı </button>
-                        </a>
-                        <a asp-action="ProductReadOnly" asp-controller="Home">
-                            <button type="button" class="btn btn-secondary" id="afterShopping" style="display:none;"/>Ürün Detayı </button>
-                        </a>
-
+        @*@foreach (var item in Model)
+        {*@
+            <div class="col-sm-2">
+                <div class="card">
+                    <div class="card-body">
+                        <img class="card-img-top" src="/images/products/ProductImage" alt="Card image cap">
+                        <center>
+                            <h5 class="card-title">@*@item.ProductName*@ Ürün adı</h5>
+                            <div id="bought" style="display:none;">
+                                <span>Aldım </span><input type="checkbox" />
+                            </div>
                             <p></p>
-                            <button type="button" class="btn btn-danger" id="removeProduct" />Ürünü Çıkar</button>
-                    </center>
+                            <a asp-action="Product" asp-controller="Home">
+                                <button type="button" class="btn btn-primary" id="beforeShopping">Ürün Detayı</button>
+                            </a>
+                            <a asp-action="ProductReadOnly" asp-controller="Home">
+                                <button type="button" class="btn btn-secondary" id="afterShopping" style="display:none;">Ürün Detayı</button>
+                            </a>
+                            <p></p>
+                            <button type="button" class="btn btn-danger" id="removeProduct">Ürünü Çıkar</button>
+                        </center>
+                    </div>
                 </div>
             </div>
-        </div>
+        @*}*@
     </div>
-</div>
 </form>
 
 <script src="~/js/list.js" asp-append-version="true"></script>

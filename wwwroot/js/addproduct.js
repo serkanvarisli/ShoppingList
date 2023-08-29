@@ -1,10 +1,6 @@
 $(document).ready(function () {
-    // Radyo düðmesine týklandýðýnda
-    $('input[name="addProductDetailRadio"]').change(function () {
-        if ($(this).prop("id") === "addProductDetailRadio") {
-            $('#hiddenProductDetailContainer').show();
-        } else {
-            $('#hiddenProductDetailContainer').hide();
-        }
+    $("#addProductDetailRadio").click(function () {
+        // Düðme týklandýðýnda gizli div'i göster veya gizle
+        $("#hiddenProductDetailContainer").toggle();
     });
 });
