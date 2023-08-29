@@ -37,9 +37,30 @@ namespace ShoppingList.Controllers
         {
             return View();
         }
+        [HttpGet]
         public IActionResult AddList()
         {
-            return View();
+            string username = User.Identity.Name;
+
+            // Kullanıcının UserId'sini veritabanından çekme
+            var userId = _context.Users
+                .Where(u => u.UserEmail == username)
+                .Select(u => u.UserId)
+                .FirstOrDefault(); // Tek bir değer alıyoruz
+
+            var model = new UserListsViewModel
+            {
+                UserId = userId,
+            };
+
+            return View(model);
+        }
+        [HttpPost]
+        public IActionResult AddList(List list)
+        {
+            _context.Lists.Add(list);
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Home");
         }
         public IActionResult DeleteList()
         {
