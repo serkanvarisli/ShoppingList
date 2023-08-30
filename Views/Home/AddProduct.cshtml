@@ -1,5 +1,6 @@
 ﻿@using ShoppingList.ViewModel
 @*@model List<AdminProductViewModel>*@
+@model Product
 
 @section nav{
 	<li class="nav-item">
@@ -25,10 +26,10 @@
 					<h4 class="card-text d-flex justify-content-center" style="font-size:14px;">@*@item.CategoryName*@</h4>
 					<a asp-action="AddProduct" asp-controller="Home">
 
-						<img class="card-img-top" src="/images/products@*/@item.ProductImage*@" alt="Card image cap">
+						<img class="card-img-top" src="/images/products/@Model.ProductImage" alt="Card image cap">
 						<center>
 
-							<h5 class="card-title text-black">@*@item.ProductName*@</h5>
+							<h5 class="card-title text-black">@Model.ProductName</h5>
 						</center>
 					</a>
 

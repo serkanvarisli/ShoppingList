@@ -4,7 +4,7 @@
     </li>
 }
 @using ShoppingList.ViewModel;
-@model List<UserProductViewModel>
+@model List<Product>
 
 <br />
 <form asp-action="ProductSelectToAdd" asp-controller="Home" method="get" class="form-inline justify-content-end">
@@ -42,8 +42,8 @@
             <div class="col-sm-2" style="padding:10px">
                 <div class="card border-3">
                     <div class="card-body">
-                        <h4 class="card-text d-flex justify-content-center" style="font-size:14px;">@product.CategoryName</h4>
-                        <a asp-action="AddProduct" asp-controller="Home" >
+                        <h4 class="card-text d-flex justify-content-center" style="font-size:14px;">@product.CategoryId</h4>
+                        <a asp-action="AddProduct" asp-controller="Home" asp-route-id="@product.ProductId" >
                             @*asp-route-productId="@product.ProductId"*@
                         <img class="card-img-top" src="/images/products/@product.ProductImage" alt="Card image cap">
                         <center>
