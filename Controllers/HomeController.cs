@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ShoppingList.Models;
 using ShoppingList.ViewModel;
@@ -17,7 +18,7 @@ namespace ShoppingList.Controllers
         {
             _context = context;
         }
-        public IActionResult Index()
+        public IActionResult Index(string p)
 		{
             string username = User.Identity.Name;
             TempData["username"] = username;
@@ -30,7 +31,7 @@ namespace ShoppingList.Controllers
                     ListId = l.ListId,
                 })
                 .ToList();
-            
+
             return View(kullaniciListe);
 		}
 
@@ -82,8 +83,9 @@ namespace ShoppingList.Controllers
                 return RedirectToAction("Index", "Home");
             }
         }
-        public IActionResult List()
+        public IActionResult List(string p, string categoryFilter)
         {
+
             string username = User.Identity.Name;
 
             var user = _context.Users
@@ -99,9 +101,28 @@ namespace ShoppingList.Controllers
                     ProductName = l.Product.ProductName,
                     ProductImage = l.Product.ProductImage,
                     CategoryName = l.Product.Category.CategoryName,
-                })
-                .ToList();
-            return View(products);
+                });
+            //arama
+            if (!string.IsNullOrEmpty(p))
+            {
+                products = products.Where(x => x.ProductName.Contains(p));
+            }
+            //filtreleme
+            var categories = _context.Categories.Select(c => new SelectListItem
+            {
+                Value = c.CategoryName.ToString(),
+                Text = c.CategoryName
+            }).ToList();
+            ViewBag.Categories = categories;
+            if (!string.IsNullOrEmpty(categoryFilter))
+            {
+                if (categoryFilter != "all")
+                {
+                    products = products.Where(x => x.CategoryName == categoryFilter);
+                }
+            }
+
+            return View(products.ToList());
         }
 
         public IActionResult ProductSelectToAdd()

@@ -9,6 +9,36 @@
         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AddProduct" id="addPruductNav">ÜRÜN EKLE</a>
         </li>
 }
+<form asp-action="List" asp-controller="Home" method="get" class="form-inline justify-content-end">
+    <div>
+        
+        <select name="categoryFilter" asp-items="@ViewBag.Categories">
+
+                <option value="all">Tümü</option>
+            @foreach (var item in Model)
+            {
+                
+            }
+            &ensp;
+            &ensp;
+            <!-- Diğer kategori seçenekleri -->
+        </select>
+
+        <button type="submit" class="btn form-control btn-outline-secondary btn-sm" style="margin-bottom:5px; margin-top:2.5px;margin-left:2.5px;">Filtrele</button>
+    </div>
+</form>
+
+<form asp-action="List" asp-controller="Home" method="get" class="form-inline justify-content-end">
+    
+    <div class="input-group">
+        <input type="text" name="p" class="form-control" placeholder="Ürün Ara.." />
+        <div class="input-group-append">
+            <button type="submit" class="btn btn-secondary">Ara</button>
+        </div>
+    </div>
+</form>
+
+<br />
 <form>
     <div class="row">  
         <div class="col">
