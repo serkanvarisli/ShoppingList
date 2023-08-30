@@ -18,4 +18,6 @@ public partial class User
     public string? RePassword { get; set; }
 
     public virtual ICollection<List> Lists { get; set; } = new List<List>();
+
+    public virtual ICollection<ProductDetail> ProductDetails { get; set; } = new List<ProductDetail>();
 }

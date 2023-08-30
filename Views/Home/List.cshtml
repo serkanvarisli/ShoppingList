@@ -1,5 +1,5 @@
-﻿@*@using ShoppingList.ViewModel
-@model List<Product>*@
+﻿@using ShoppingList.ViewModel
+@model List<UserProductViewModel>
 
 @section nav{
     <li class="nav-item">
@@ -12,7 +12,7 @@
 <form>
     <div class="row">  
         <div class="col">
-            <a asp-controller="Home" asp-action="AddProduct" >
+            <a asp-controller="Home" asp-action="ProductSelectToAdd">
                 <button type="button" class="btn btn-success" id="addProduct" />Ürün Ekle</button>
             </a>
         </div>
@@ -29,17 +29,18 @@
     
         <center><h3>ÜRÜNLER</h3></center>
     <div class="row">
-        @*@foreach (var item in Model)
-        {*@
+        @foreach (var item in Model)
+        {
             <div class="col-sm-2">
                 <div class="card">
                     <div class="card-body">
-                        <img class="card-img-top" src="/images/products/ProductImage" alt="Card image cap">
+                        <img class="card-img-top" src="/images/products/@item.ProductImage" alt="Card image cap">
                         <center>
-                            <h5 class="card-title">@*@item.ProductName*@ Ürün adı</h5>
+                            <h5 class="card-title">@item.ProductName</h5>
                             <div id="bought" style="display:none;">
                                 <span>Aldım </span><input type="checkbox" />
                             </div>
+                            <p class="card-text" style="font-size:15px;">Kategori= @item.CategoryName</p>
                             <p></p>
                             <a asp-action="Product" asp-controller="Home">
                                 <button type="button" class="btn btn-primary" id="beforeShopping">Ürün Detayı</button>
@@ -53,7 +54,7 @@
                     </div>
                 </div>
             </div>
-        @*}*@
+        }
     </div>
 </form>
 

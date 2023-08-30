@@ -34,10 +34,6 @@ namespace ShoppingList.Controllers
             return View(kullaniciListe);
 		}
 
-        public IActionResult List()
-        {
-            return View();
-        }
         [HttpGet]
         public IActionResult AddList()
         {
@@ -85,6 +81,41 @@ namespace ShoppingList.Controllers
                 _context.SaveChanges();
                 return RedirectToAction("Index", "Home");
             }
+        }
+        public IActionResult List()
+        {
+            string username = User.Identity.Name;
+
+            var user = _context.Users
+                .Include(u => u.ProductDetails)
+                .FirstOrDefault(u => u.UserEmail == username);
+
+            var products = _context.ProductDetails
+                .Include(p => p.User)
+                .Include(l => l.Product)
+                .Where(l => l.User.UserEmail == username)
+                .Select(l => new UserProductViewModel
+                {
+                    ProductName = l.Product.ProductName,
+                    ProductImage = l.Product.ProductImage,
+                    CategoryName = l.Product.Category.CategoryName,
+                })
+                .ToList();
+            return View(products);
+        }
+
+        public IActionResult ProductSelectToAdd()
+        {
+            var product = _context.Products
+                .Select(p => new AdminAddFileViewModel()
+                {
+                    ProductName = p.ProductName,
+                    ProductImage = p.ProductImage,
+                    CategoryName = p.Category.CategoryName,
+                    ProductId = p.ProductId
+                })
+                .ToList();
+            return View(product);
         }
 
         public IActionResult Product()

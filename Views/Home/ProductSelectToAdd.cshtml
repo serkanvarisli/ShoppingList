@@ -1,0 +1,36 @@
+﻿@using ShoppingList.ViewModel;
+@model List<AdminAddFileViewModel>
+
+<br />
+
+<div class="row">
+    <center><p><h1>Ürünler</h1></p></center>
+    <div class="row">
+        @foreach (var product in Model)
+        {
+            <input type="hidden" asp-for="@product.ProductId">
+            <div class="col-sm-2" style="padding:10px">
+                <div class="card border-3">
+                    <div class="card-body">
+                        <h4 class="card-text d-flex justify-content-center" style="font-size:14px;">@product.CategoryName</h4>
+                        <a asp-action="AddProduct" asp-controller="Home">
+
+                        <img class="card-img-top" src="/images/products/@product.ProductImage" alt="Card image cap">
+                        <center>
+
+                            <h5 class="card-title text-black">@product.ProductName</h5>
+                                <button class="btn btn-primary">Seç</button>
+                        </center>
+                            </a>
+
+                            <br>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<br />
+<br />
+<br />
+

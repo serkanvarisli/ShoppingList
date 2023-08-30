@@ -11,5 +11,7 @@ public partial class List
 
     public string? ListName { get; set; }
 
+    public virtual ICollection<ProductDetail> ProductDetails { get; set; } = new List<ProductDetail>();
+
     public virtual User User { get; set; } = null!;
 }
