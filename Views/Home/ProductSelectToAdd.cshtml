@@ -4,9 +4,34 @@
     </li>
 }
 @using ShoppingList.ViewModel;
-@model List<AdminAddFileViewModel>
+@model List<UserProductViewModel>
 
 <br />
+<form asp-action="ProductSelectToAdd" asp-controller="Home" method="get" class="form-inline justify-content-end">
+    <div>
+
+        <select name="categoryFilter" asp-items="@ViewBag.Categories">
+
+            <option value="all">Tümü</option>
+            @foreach (var item in Model)
+            {
+
+            }
+        </select>
+
+        <button type="submit" class="btn form-control btn-outline-secondary btn-sm" style="margin-bottom:5px; margin-top:2.5px;margin-left:2.5px;">Filtrele</button>
+    </div>
+</form>
+
+<form asp-action="ProductSelectToAdd" asp-controller="Home" method="get" class="form-inline justify-content-end">
+
+    <div class="input-group">
+        <input type="text" name="searchTerm" class="form-control" placeholder="Ürün Ara.." />
+        <div class="input-group-append">
+            <button type="submit" class="btn btn-secondary">Ara</button>
+        </div>
+    </div>
+</form>
 
 <div class="row">
     <center><p><h1>Ürünler</h1></p></center>
@@ -18,8 +43,8 @@
                 <div class="card border-3">
                     <div class="card-body">
                         <h4 class="card-text d-flex justify-content-center" style="font-size:14px;">@product.CategoryName</h4>
-                        <a asp-action="AddProduct" asp-controller="Home">
-
+                        <a asp-action="AddProduct" asp-controller="Home" >
+                            @*asp-route-productId="@product.ProductId"*@
                         <img class="card-img-top" src="/images/products/@product.ProductImage" alt="Card image cap">
                         <center>
 

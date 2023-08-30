@@ -124,11 +124,10 @@ namespace ShoppingList.Controllers
 
             return View(products.ToList());
         }
-
-        public IActionResult ProductSelectToAdd()
+        public IActionResult ProductSelectToAdd(string searchTerm, string categoryFilter)
         {
             var product = _context.Products
-                .Select(p => new AdminAddFileViewModel()
+                .Select(p => new UserProductViewModel()
                 {
                     ProductName = p.ProductName,
                     ProductImage = p.ProductImage,
@@ -136,7 +135,26 @@ namespace ShoppingList.Controllers
                     ProductId = p.ProductId
                 })
                 .ToList();
-            return View(product);
+            //arama
+            if (!string.IsNullOrEmpty(searchTerm))
+            {
+                product = product.Where(x => x.ProductName.ToLower().Contains(searchTerm.ToLower())).ToList();
+            }
+            //filtreleme
+            var categories = _context.Categories.Select(c => new SelectListItem
+            {
+                Value = c.CategoryName.ToString(),
+                Text = c.CategoryName
+            }).ToList();
+            ViewBag.Categories = categories;
+            if (!string.IsNullOrEmpty(categoryFilter))
+            {
+                if (categoryFilter != "all")
+                {
+                    product = product.Where(y => y.CategoryName == categoryFilter).ToList();
+                }
+            }
+            return View(product.ToList());
         }
 
         public IActionResult Product()
