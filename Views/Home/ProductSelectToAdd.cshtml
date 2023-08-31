@@ -4,7 +4,7 @@
     </li>
 }
 @using ShoppingList.ViewModel;
-@model List<ProductViewModel>
+@model List<ProductDetail>
 
 <br />
 <form asp-action="ProductSelectToAdd" asp-controller="Home" method="get" class="form-inline justify-content-end">
@@ -33,33 +33,40 @@
     </div>
 </form>
 
-<div class="row">
+                <div class="row">
     <center><p><h1>Ürünler</h1></p></center>
     <div class="row">
-        @foreach (var product in Model)
+        @foreach (var item in Model)
         {
-            <input type="hidden" asp-for="@product.ProductId">
+            @foreach (var product in ViewBag.Products)
+                {
             <div class="col-sm-2" style="padding:10px">
                 <div class="card border-3">
                     <div class="card-body">
-                        <h4 class="card-text d-flex justify-content-center" style="font-size:14px;">@product.CategoryName</h4>
-                        <a asp-action="AddProduct" asp-controller="Home" asp-route-id="@product.ProductId" >
-                            @*asp-route-productId="@product.ProductId"*@
+                                <h4 class="card-text d-flex justify-content-center" style="font-size:14px;">
+								@product.Category.CategoryName
+                                </h4>
                         <img class="card-img-top" src="/images/products/@product.ProductImage" alt="Card image cap">
                         <center>
-
+                              <form @*method="post" asp-action="AddProduct" asp-controller="Home"*@>
+                                    <input type="text" value="@product.ProductId" name="ProductId" hidden>
                             <h5 class="card-title text-black">@product.ProductName</h5>
-                                <button class="btn btn-primary">Seç</button>
+                            <br>
+                                    <a asp-action="AddProduct" asp-controller="Home" asp-route-id="@product.ProductId">
+                                        <button class="btn btn-primary">Seç</button>
+                                    </a>
+                                    <input type="text" value="@item.ListId" name="ListId" hidden>
+                                </form>
+                              
                         </center>
-                            </a>
 
                             <br>
                     </div>
                 </div>
             </div>
         }
-    </div>
-</div>
+        }
+
 <br />
 <br />
 <br />

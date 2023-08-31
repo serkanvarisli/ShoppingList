@@ -124,20 +124,19 @@ namespace ShoppingList.Controllers
         }
         public IActionResult ProductSelectToAdd(string searchTerm, string categoryFilter)
         {
-            var product = _context.Products
-                .Include(p=>p.Category)
-                .Select(p => new ProductViewModel()
-                {
-                    ProductName = p.ProductName,
-                    ProductImage = p.ProductImage,
-                    CategoryName= p.Category.CategoryName,
-                    ProductId = p.ProductId
-                })
+            var product = _context.ProductDetails
+                .Include(p => p.Product)
+                .ThenInclude(p=>p.Category)
                 .ToList();
+            var products = _context.Products
+                .Include(p => p.ProductDetails)
+                .Include(p => p.Category)
+                .ToList();
+            ViewBag.Products = products;
             //arama
             if (!string.IsNullOrEmpty(searchTerm))
             {
-                product = product.Where(x => x.ProductName.ToLower().Contains(searchTerm.ToLower())).ToList();
+				ViewBag.Products = products.Where(x => x.ProductName.ToLower().Contains(searchTerm.ToLower())).ToList();
             }
             //filtreleme
             var categories = _context.Categories.Select(c => new SelectListItem
@@ -150,7 +149,7 @@ namespace ShoppingList.Controllers
             {
                 if (categoryFilter != "all")
                 {
-                    product = product.Where(y => y.CategoryName == categoryFilter).ToList();
+					ViewBag.Products = products.Where(y => y.Category.CategoryName == categoryFilter).ToList();
                 }
             }
             return View(product.ToList());
