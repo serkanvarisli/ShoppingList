@@ -3,6 +3,11 @@
 		<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="List">LİSTE</a>
 	</li>
 }
+
+@section user {
+	<span class="dropdown-item-text text text-black-50">@TempData["username"]</span>
+    }
+
 <form>
 	<div class="container">
 		<div class="row">

@@ -39,6 +39,7 @@ namespace ShoppingList.Controllers
         public IActionResult AddList()
         {
             string username = User.Identity.Name;
+            TempData["username"] = username;
 
             // Kullanıcının UserId'sini veritabanından çekme
             var userId = _context.Users
@@ -87,7 +88,9 @@ namespace ShoppingList.Controllers
         {
 
             string username = User.Identity.Name;
+            TempData["username"] = username;
 
+            ViewBag.ListId = listId;
 
             var products = _context.ProductDetails
                 .Include(p => p.List)
@@ -98,7 +101,7 @@ namespace ShoppingList.Controllers
                     ProductName = l.Product.ProductName,
                     ProductImage = l.Product.ProductImage,
                     CategoryName = l.Product.Category.CategoryName,
-                    ListId = l.ListId
+                    ListId = listId
                 });
             //arama
             if (!string.IsNullOrEmpty(p))
@@ -122,11 +125,31 @@ namespace ShoppingList.Controllers
 
             return View(products.ToList());
         }
-        public IActionResult ProductSelectToAdd(string searchTerm, string categoryFilter)
+        public IActionResult ProductSelectToAdd(string searchTerm, string categoryFilter,int listId)
         {
+            string username = User.Identity.Name;
+            TempData["username"] = username;
+
+            // Kullanıcının UserId'sini veritabanından çekme
+            var userId = _context.Users
+                .Where(u => u.UserEmail == username)
+                .Include(u => u.Lists)
+                .Select(u => u.UserId)
+                .FirstOrDefault(); // Tek bir değer alıyoruz
+
+
             var product = _context.ProductDetails
                 .Include(p => p.Product)
                 .ThenInclude(p=>p.Category)
+                .Select(p => new ProductDetail
+                {
+                    ProductId= p.ProductId,
+                    ListId = listId,
+                    UserId = userId,
+                    ProductBrand = p.ProductBrand,
+                    ProductQuantity = p.ProductQuantity,
+                    ProductDetail1 = p.ProductDetail1
+                })
                 .ToList();
             var products = _context.Products
                 .Include(p => p.ProductDetails)
@@ -154,7 +177,13 @@ namespace ShoppingList.Controllers
             }
             return View(product.ToList());
         }
-
+        [HttpPost]
+        public IActionResult ProductSelectToAdd(ProductDetail model)
+        {
+            _context.ProductDetails.Add(model);
+            _context.SaveChanges();
+            return RedirectToAction("List", "Home");
+        }
         public IActionResult Product()
         {
             return View();

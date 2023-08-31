@@ -1,6 +1,6 @@
 $(document).ready(function () {
-    $("#addProductDetailRadio").click(function () {
-        // Düðme týklandýðýnda gizli div'i göster veya gizle
-        $("#hiddenProductDetailContainer").toggle();
+    $(".addProductDetailRadio").click(function () {
+        var targetId = $(this).data("target");
+        $("#" + targetId).toggle();
     });
 });

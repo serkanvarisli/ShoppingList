@@ -9,6 +9,9 @@
         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AddProduct" id="addPruductNav">ÜRÜN EKLE</a>
         </li>
 }
+@section user {
+    <span class="dropdown-item-text text text-black-50">@TempData["username"]</span>
+    }
 <form asp-action="List" asp-controller="Home" method="get" class="form-inline justify-content-end">
     <div>
         
@@ -39,9 +42,10 @@
 <form>
     <div class="row">  
         <div class="col">
-            <a asp-controller="Home" asp-action="ProductSelectToAdd">
-                <button type="button" class="btn btn-success" id="addProduct" />Ürün Ekle</button>
-            </a>
+
+            <a asp-controller="Home" asp-action="ProductSelectToAdd" asp-route-listId="@ViewBag.ListId">
+                        <button type="button" class="btn btn-success" id="addProduct">Ürün Ekle</button>
+                    </a>
         </div>
         <div class="col">
             <button type="button" class="btn btn-primary float-right" id="startShopping">ALIŞVERİŞE ÇIKIYORUM</button>
@@ -58,7 +62,6 @@
     <div class="row">
         @foreach (var item in Model)
         {
-            <span>@item.ListId</span>
             <div class="col-sm-2">
                 <div class="card">
                     <div class="card-body">
@@ -82,6 +85,9 @@
                     </div>
                 </div>
             </div>
+            <a asp-controller="Home" asp-action="ProductSelectToAdd" asp-route-listId="@item.ListId">
+                <button type="button" class="btn btn-success" id="addProduct">Ürün Ekle</button>
+            </a>
         }
     </div>
 </form>
