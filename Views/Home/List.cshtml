@@ -6,7 +6,7 @@
         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">LİSTELERİM</a>
     </li>
         <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AddProduct" id="addPruductNav">ÜRÜN EKLE</a>
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="ProductSelectToAdd" asp-route-listId="@ViewBag.ListId" id="addPruductNav">ÜRÜN EKLE</a>
         </li>
 }
 @section user {
@@ -85,9 +85,6 @@
                     </div>
                 </div>
             </div>
-            <a asp-controller="Home" asp-action="ProductSelectToAdd" asp-route-listId="@item.ListId">
-                <button type="button" class="btn btn-success" id="addProduct">Ürün Ekle</button>
-            </a>
         }
     </div>
 </form>
