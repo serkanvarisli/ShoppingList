@@ -83,24 +83,22 @@ namespace ShoppingList.Controllers
                 return RedirectToAction("Index", "Home");
             }
         }
-        public IActionResult List(string p, string categoryFilter)
+        public IActionResult List(string p, string categoryFilter,int listId)
         {
 
             string username = User.Identity.Name;
 
-            var user = _context.Users
-                .Include(u => u.ProductDetails)
-                .FirstOrDefault(u => u.UserEmail == username);
 
             var products = _context.ProductDetails
-                .Include(p => p.User)
-                .Include(l => l.Product)
-                .Where(l => l.User.UserEmail == username)
+                .Include(p => p.List)
+                .Include(p => p.Product)
+                .Where(l => l.ListId == listId)
                 .Select(l => new UserProductViewModel
                 {
                     ProductName = l.Product.ProductName,
                     ProductImage = l.Product.ProductImage,
                     CategoryName = l.Product.Category.CategoryName,
+                    ListId = l.ListId
                 });
             //arama
             if (!string.IsNullOrEmpty(p))

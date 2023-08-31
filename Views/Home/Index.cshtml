@@ -27,9 +27,10 @@
             <br>
         <div class="card border-5" style="width: 22rem;">
             <center>
+
                     <div class="card-body ">
                         <h5 class="card-title">@list.ListName</h5>
-                        <a asp-action="list" asp-controller="Home" class="btn btn-primary">Listeye gitmek için tıklayın</a>
+                        <a asp-action="list" asp-controller="Home" asp-route-listId="@list.ListId" class="btn btn-primary">Listeye gitmek için tıklayın</a>
                         <p></p>
                         <a asp-action="DeleteList" asp-controller="Home" asp-route-ListId="@list.ListId" onclick="return confirm('@list.ListName adlı listeyi gerçekten silmek istiyor musunuz?')">
                             <button class="btn btn-danger">Listeyi Sil</button>
