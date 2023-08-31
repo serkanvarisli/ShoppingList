@@ -127,11 +127,12 @@ namespace ShoppingList.Controllers
         public IActionResult ProductSelectToAdd(string searchTerm, string categoryFilter)
         {
             var product = _context.Products
-                .Select(p => new Product()
+                .Include(p=>p.Category)
+                .Select(p => new ProductViewModel()
                 {
                     ProductName = p.ProductName,
                     ProductImage = p.ProductImage,
-                    CategoryId = p.CategoryId,
+                    CategoryName= p.Category.CategoryName,
                     ProductId = p.ProductId
                 })
                 .ToList();
@@ -149,10 +150,10 @@ namespace ShoppingList.Controllers
             ViewBag.Categories = categories;
             if (!string.IsNullOrEmpty(categoryFilter))
             {
-                //if (categoryFilter != "all")
-                //{
-                //    product = product.Where(y => y.CategoryName == categoryFilter).ToList();
-                //}
+                if (categoryFilter != "all")
+                {
+                    product = product.Where(y => y.CategoryName == categoryFilter).ToList();
+                }
             }
             return View(product.ToList());
         }
