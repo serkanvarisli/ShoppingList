@@ -5,6 +5,7 @@ $(document).ready(function () {
             selectedItems.push($(this).val());
         });
 
+        
             $.ajax({
                 url: '/Home/DeleteSelectedItems', // Silme iþlemi yapýlacak action'ýn yolunu belirtin
                 type: 'POST',
@@ -14,11 +15,13 @@ $(document).ready(function () {
                     location.reload();
                 },
                 error: function () {
-                    alert('Silme islemi sirasinda bir hata olustu.');
+                    alert('Silme islemi sirasýnda bir hata oluþtu.');
                     location.reload();
+
                 }
             });
-        
+                    
+
     });
 
     $('#startShopping').click(function () {

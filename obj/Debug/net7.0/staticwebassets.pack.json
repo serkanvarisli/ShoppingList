@@ -53,6 +53,10 @@
       "PackagePath": "staticwebassets\\images\\products\\pant.png"
     },
     {
+      "Id": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\images\\products\\soap.png",
+      "PackagePath": "staticwebassets\\images\\products\\soap.png"
+    },
+    {
       "Id": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\images\\products\\tomato.png",
       "PackagePath": "staticwebassets\\images\\products\\tomato.png"
     },

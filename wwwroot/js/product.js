@@ -9,7 +9,7 @@ const myInput4 = document.getElementById('tb4');
 
 
 editproduct.addEventListener('click', function () {
-    myInput1.readOnly = false;
+    myInput1.readOnly = true;
     myInput2.readOnly = false;
     myInput3.readOnly = false;
     myInput4.readOnly = false;
