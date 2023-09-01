@@ -41,11 +41,10 @@ namespace ShoppingList.Controllers
             string username = User.Identity.Name;
             TempData["username"] = username;
 
-            // Kullanıcının UserId'sini veritabanından çekme
             var userId = _context.Users
                 .Where(u => u.UserEmail == username)
                 .Select(u => u.UserId)
-                .FirstOrDefault(); // Tek bir değer alıyoruz
+                .FirstOrDefault(); 
 
             var model = new UserListsViewModel
             {
@@ -139,12 +138,11 @@ namespace ShoppingList.Controllers
             string username = User.Identity.Name;
             TempData["username"] = username;
 
-            // Kullanıcının UserId'sini veritabanından çekme
             var userId = _context.Users
                 .Where(u => u.UserEmail == username)
                 .Include(u => u.Lists)
                 .Select(u => u.UserId)
-                .FirstOrDefault(); // Tek bir değer alıyoruz
+                .FirstOrDefault();
 
             ViewBag.ListId=listId;
             var product = _context.ProductDetails
