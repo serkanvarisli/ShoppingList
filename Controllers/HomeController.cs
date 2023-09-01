@@ -92,6 +92,13 @@ namespace ShoppingList.Controllers
 
             ViewBag.ListId = listId;
 
+            var listname = _context.Lists
+                .Where(l => l.ListId == listId)
+                .Select(l => l.ListName)
+                .FirstOrDefault();
+
+            ViewBag.ListName = listname;
+
             var products = _context.ProductDetails
                 .Include(p => p.List)
                 .Include(p => p.Product)
@@ -207,7 +214,7 @@ namespace ShoppingList.Controllers
 			product.ProductQuantity = model.ProductQuantity;
 			product.ProductDetail1 = model.ProductDetail1;
 			_context.SaveChanges();
-			return RedirectToAction("Product", "Home", new { productDetailId = model.ProductDetailId });
+			return RedirectToAction("ProductDetail", "Home", new { productDetailId = model.ProductDetailId });
 		}
         public IActionResult DeleteProduct(int productDetailId)
         {

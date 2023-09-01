@@ -12,6 +12,15 @@
 @section user {
     <span class="dropdown-item-text text text-black-50">@TempData["username"]</span>
     }
+
+    <div class="row">
+    <div class=col>
+        <br />
+        <h2 class="text">
+            @ViewBag.ListName Listesi
+        </h2>
+    </div>
+        <div class="col">
 <form asp-action="List" asp-controller="Home" asp-route-listId="@ViewBag.ListId" method="post" class="form-inline justify-content-end">
     <div>
         
@@ -37,7 +46,9 @@
         </div>
     </div>
 </form>
+    </div>
 
+</div>
 <br />
 <form>
     <div class="row">  
