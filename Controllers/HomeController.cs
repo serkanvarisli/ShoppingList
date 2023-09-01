@@ -198,6 +198,8 @@ namespace ShoppingList.Controllers
                 .Include(p => p.Product)
 				.Where(p => p.ProductDetailId == productDetailId)
                 .SingleOrDefault();
+            var listId = productdetail.ListId;
+            ViewBag.ListId = listId;
             return View(productdetail);
         }
         [HttpPost]
@@ -245,7 +247,9 @@ namespace ShoppingList.Controllers
                .Include(p => p.Product)
                .Where(p => p.ProductDetailId == productDetailId)
                .SingleOrDefault();
-            return View(productdetail);
+			var listId = productdetail.ListId;
+			    ViewBag.ListId = listId;
+			return View(productdetail);
         }
 
     }
