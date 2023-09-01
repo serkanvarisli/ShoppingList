@@ -139,7 +139,7 @@ namespace ShoppingList.Controllers
                 .Select(u => u.UserId)
                 .FirstOrDefault(); // Tek bir değer alıyoruz
 
-
+            ViewBag.ListId=listId;
             var product = _context.ProductDetails
                 .Include(p => p.Product)
                 .ThenInclude(p=>p.Category)
@@ -189,11 +189,11 @@ namespace ShoppingList.Controllers
         [HttpGet]
         public IActionResult ProductDetail(int productDetailId)
         {
-            var product= _context.ProductDetails
+            var productdetail= _context.ProductDetails
                 .Include(p => p.Product)
 				.Where(p => p.ProductDetailId == productDetailId)
                 .SingleOrDefault();
-            return View(product);
+            return View(productdetail);
         }
         [HttpPost]
         public IActionResult UpdateProductDetail(ProductDetail model)
@@ -213,9 +213,30 @@ namespace ShoppingList.Controllers
         {
             return View();
         }
-        public IActionResult ProductReadOnly()
+        [HttpPost]
+        public ActionResult DeleteSelectedItems(List<int> selectedItems)
         {
-            return View();
+
+            foreach (var productDetailId in selectedItems)
+            {
+                var productToDelete = _context.ProductDetails.FirstOrDefault(p => p.ProductDetailId == productDetailId);
+                if (productToDelete != null)
+                {
+                    _context.ProductDetails.Remove(productToDelete);
+                }
+            }
+
+            _context.SaveChanges(); // Değişiklikleri kaydet
+
+            return Json(new { success = true });
+        }
+        public IActionResult ProductReadOnly(int productDetailId)
+        {
+            var productdetail = _context.ProductDetails
+               .Include(p => p.Product)
+               .Where(p => p.ProductDetailId == productDetailId)
+               .SingleOrDefault();
+            return View(productdetail);
         }
 
     }

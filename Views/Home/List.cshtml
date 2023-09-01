@@ -49,7 +49,12 @@
         </div>
         <div class="col">
             <button type="button" class="btn btn-primary float-right" id="startShopping">ALIŞVERİŞE ÇIKIYORUM</button>
-            <button type="button" class="btn btn-secondary float-right" id="endShopping" style="display:none;">ALIVERİŞ TAMAMLANDI</button>
+            @foreach(var list in Model)
+            {
+                @*<a onclick="return confirm('Alışveriş Tamamlansın Mı ?')">*@
+                    <button type="submit" class="btn btn-secondary float-right" id="endShopping" style="display:none;">ALIVERİŞ TAMAMLANDI</button>
+                @*</a>*@
+            }
         </div>
     </div>
     <div class="form-group">
@@ -63,28 +68,30 @@
         @foreach (var item in Model)
         {
             <div class="col-sm-2">
-                <div class="card">
-                    <div class="card-body">
+                <div class="card" style="margin:5px">
+                    <div class="card-body ">
                         <center>
                             <b>
-                            <p class="card-text " style="font-size:15px;">@item.CategoryName</p>
+                                <p class="card-text " style="font-size:15px;">@item.CategoryName</p>
                             </b>
-                            </center>
+                        </center>
                         <img class="card-img-top" src="/images/products/@item.ProductImage" alt="Card image cap">
                         <center>
                             <h5 class="card-title">@item.ProductName</h5>
-                            <div id="bought" style="display:none;">
-                                <span>Aldım </span><input type="checkbox" />
+                            <div class="product">
+                                <div class="bought" style="display:none;">
+                                    <span>Aldım </span><input type="checkbox" name="selectedItems" value="@item.ProductDetailId" />
+                                </div>
                             </div>
                             <p></p>
                             <a asp-action="ProductDetail" asp-controller="Home" asp-route-productDetailId="@item.ProductDetailId">
-                                <button type="button" class="btn btn-primary" id="beforeShopping">Ürün Detayı</button>
+                                <button type="button" class="btn btn-primary beforeShopping">Ürün Detayı</button>
                             </a>
-                            <a asp-action="ProductReadOnly" asp-controller="Home">
-                                <button type="button" class="btn btn-secondary" id="afterShopping" style="display:none;">Ürün Detayı</button>
+                            <a asp-action="ProductReadOnly" asp-controller="Home" asp-route-productDetailId="@item.ProductDetailId">
+                                <button type="button" class="btn btn-secondary afterShopping" style="display:none;">Ürün Detayı</button>
                             </a>
                             <p></p>
-                            <button type="button" class="btn btn-danger" id="removeProduct">Ürünü Çıkar</button>
+                            <button type="button" class="btn btn-danger removeProduct">Ürünü Çıkar</button>
                         </center>
                     </div>
                 </div>

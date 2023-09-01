@@ -1,27 +1,41 @@
-//Alýþveriþ iþlemleri jquery
 $(document).ready(function () {
-    $('#startShopping').click(function () {
-        $('#startShopping').hide();
-        $('#endShopping').show();
-        $('#addPruductNav').hide();
-        $('#removeProduct').hide();
-        $('#addProduct').hide();
-        $('#bought').show();
-        $('#afterShopping').show();
-        $('#beforeShopping').hide();
+    $("#endShopping").click(function () {
+        var selectedItems = [];
+        $("input[name='selectedItems']:checked").each(function () {
+            selectedItems.push($(this).val());
+        });
 
+            $.ajax({
+                url: '/Home/DeleteSelectedItems', // Silme iþlemi yapýlacak action'ýn yolunu belirtin
+                type: 'POST',
+                data: { selectedItems: selectedItems },
+                success: function (result) {
+                    // Silme iþlemi baþarýlýysa sayfayý yenileyebilirsiniz veya baþka bir iþlem yapabilirsiniz.
+                    location.reload();
+                },
+                error: function () {
+                    alert('Silme islemi sirasinda bir hata olustu.');
+                    location.reload();
+                }
+            });
+        
     });
-});
 
-$(document).ready(function () {
+    $('#startShopping').click(function () {
+        $('.beforeShopping').hide();
+        $('.afterShopping').show();
+        $('.removeProduct').hide();
+        $('.bought').show();
+        $('#endShopping').show();
+        $('#startShopping').hide();
+    });
+
     $('#endShopping').click(function () {
+        $('.beforeShopping').show();
+        $('.afterShopping').hide();
+        $('.removeProduct').show();
+        $('.bought').hide();
         $('#endShopping').hide();
         $('#startShopping').show();
-        $('#addPruductNav').show();
-        $('#removeProduct').show();
-        $('#addProduct').show();
-        $('#bought').hide();
-        $('#afterShopping').hide();
-        $('#beforeShopping').show();
     });
 });

@@ -1,4 +1,6 @@
-﻿@section nav{
+﻿@model ProductDetail
+
+@section nav{
 	<li class="nav-item">
 		<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="List" >LİSTE</a>
 	</li>
@@ -7,7 +9,7 @@
 @section user {
 	<span class="dropdown-item-text text text-black-50">@TempData["username"]</span>
     }
-	@model ProductDetail
+
 <form method="post" asp-action="UpdateProductDetail" asp-controller="Home">
 	<input type="hidden" name="ProductDetailId" value="@Model.ProductDetailId">
 	<input type="hidden" name="ProductId" value="@Model.ProductId">

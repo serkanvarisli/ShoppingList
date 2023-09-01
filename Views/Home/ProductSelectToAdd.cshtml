@@ -1,10 +1,11 @@
-﻿@section nav{
+﻿@using ShoppingList.ViewModel;
+@model List<ProductDetail>
+@section nav{
     <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="List">LİSTE</a>
+        <a class="nav-link text-dark" asp-route-listId="@ViewBag.ListId" asp-controller="Home" asp-action="List">LİSTE</a>
     </li>
 }
-@using ShoppingList.ViewModel;
-@model List<ProductDetail>
+
 
 @section user {
     <span class="dropdown-item-text text text-black-50">@TempData["username"]</span>
@@ -57,8 +58,8 @@
                                     <input type="text" value="@product.ProductId" name="ProductId" hidden>
                             <h5 class="card-title text-black">@product.ProductName</h5>
                             <br>
-                                    <input type="text" value="@item.ListId" name="ListId" >
-                                    <input type="text" value="@item.UserId" name="UserId" >
+                                    <input type="text" value="@item.ListId" name="ListId" hidden >
+                                    <input type="text" value="@item.UserId" name="UserId" hidden>
                                     <div class="form-check">
                                         <input class="form-check-input addProductDetailRadio" type="checkbox" data-target="hiddenProductDetailContainer_@product.ProductId">
                                         Ürün Detay Ekle (opsiyonel)
