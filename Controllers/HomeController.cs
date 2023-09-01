@@ -101,8 +101,10 @@ namespace ShoppingList.Controllers
                     ProductName = l.Product.ProductName,
                     ProductImage = l.Product.ProductImage,
                     CategoryName = l.Product.Category.CategoryName,
-                    ListId = listId
-                });
+                    ListId = listId,
+                    ProductId=l.ProductId,
+                    ProductDetailId = l.ProductDetailId
+				});
             //arama
             if (!string.IsNullOrEmpty(p))
             {
@@ -182,23 +184,31 @@ namespace ShoppingList.Controllers
         {
             _context.ProductDetails.Add(model);
             _context.SaveChanges();
-            return RedirectToAction("List", "Home");
+            return RedirectToAction("List", "Home", new {listId=model.ListId});
         }
-        public IActionResult Product()
+        [HttpGet]
+        public IActionResult ProductDetail(int productDetailId)
         {
-            return View();
-        }
-        public IActionResult AddProduct(int id) 
-        {
-            var product = _context.Products
-            .Where(p => p.ProductId == id)
-            .SingleOrDefault();
+            var product= _context.ProductDetails
+                .Include(p => p.Product)
+				.Where(p => p.ProductDetailId == productDetailId)
+                .SingleOrDefault();
             return View(product);
         }
-        public IActionResult UpdateProduct()
+        [HttpPost]
+        public IActionResult UpdateProductDetail(ProductDetail model)
         {
-            return View();
-        }
+			var product = _context.ProductDetails.FirstOrDefault(p => p.ProductDetailId == model.ProductDetailId);
+			if (product == null)
+			{
+				return NotFound();
+			}
+			product.ProductBrand = model.ProductBrand;
+			product.ProductQuantity = model.ProductQuantity;
+			product.ProductDetail1 = model.ProductDetail1;
+			_context.SaveChanges();
+			return RedirectToAction("Product", "Home", new { productDetailId = model.ProductDetailId });
+		}
         public IActionResult DeleteProduct()
         {
             return View();
