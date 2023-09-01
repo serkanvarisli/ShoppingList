@@ -51,9 +51,9 @@
             <button type="button" class="btn btn-primary float-right" id="startShopping">ALIŞVERİŞE ÇIKIYORUM</button>
             @foreach(var list in Model)
             {
-                @*<a onclick="return confirm('Alışveriş Tamamlansın Mı ?')">*@
+                <a onclick="return confirm('Alışveriş Tamamlansın Mı ?')">
                     <button type="submit" class="btn btn-secondary float-right" id="endShopping" style="display:none;">ALIVERİŞ TAMAMLANDI</button>
-                @*</a>*@
+                </a>
             }
         </div>
     </div>
@@ -91,7 +91,7 @@
                                 <button type="button" class="btn btn-secondary afterShopping" style="display:none;">Ürün Detayı</button>
                             </a>
                             <p></p>
-                            <a asp-action="DeleteProduct" asp-controller="Home" asp-route-productDetailId="@item.ProductDetailId">
+                            <a asp-action="DeleteProduct" asp-controller="Home" asp-route-productDetailId="@item.ProductDetailId" onclick="return confirm('@item.ProductName adlı ürünü listeden çıkarmak istiyor musunuz?')">
                             <button type="button" class="btn btn-danger removeProduct">Ürünü Çıkar</button>
 							</a>
                         </center>
