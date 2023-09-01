@@ -22,6 +22,8 @@ $(document).ready(function () {
 
     $('#startShopping').click(function () {
         $('.beforeShopping').hide();
+        $('#addPruductNav').hide();
+        $('#addProduct').hide();
         $('.afterShopping').show();
         $('.removeProduct').hide();
         $('.bought').show();
@@ -31,6 +33,8 @@ $(document).ready(function () {
 
     $('#endShopping').click(function () {
         $('.beforeShopping').show();
+        $('#addPruductNav').show();
+        $('#addProduct').show();
         $('.afterShopping').hide();
         $('.removeProduct').show();
         $('.bought').hide();
