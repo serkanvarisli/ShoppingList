@@ -12,7 +12,6 @@ $(document).ready(function () {
                 data: { selectedItems: selectedItems },
                 success: function (result) {
                     // Silme iþlemi baþarýlýysa sayfayý yenileyebilirsiniz veya baþka bir iþlem yapabilirsiniz.
-                    location.reload();
                 },
                 error: function () {
                     alert('Silme islemi sirasýnda bir hata oluþtu.');

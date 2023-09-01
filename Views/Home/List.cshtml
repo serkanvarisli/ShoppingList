@@ -91,7 +91,9 @@
                                 <button type="button" class="btn btn-secondary afterShopping" style="display:none;">Ürün Detayı</button>
                             </a>
                             <p></p>
+                            <a asp-action="DeleteProduct" asp-controller="Home" asp-route-productDetailId="@item.ProductDetailId">
                             <button type="button" class="btn btn-danger removeProduct">Ürünü Çıkar</button>
+							</a>
                         </center>
                     </div>
                 </div>

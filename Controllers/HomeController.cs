@@ -209,9 +209,13 @@ namespace ShoppingList.Controllers
 			_context.SaveChanges();
 			return RedirectToAction("Product", "Home", new { productDetailId = model.ProductDetailId });
 		}
-        public IActionResult DeleteProduct()
+        public IActionResult DeleteProduct(int productDetailId)
         {
-            return View();
+            var productToDelete = _context.ProductDetails.FirstOrDefault(p => p.ProductDetailId == productDetailId);
+            _context.ProductDetails.Remove(productToDelete);
+            _context.SaveChanges();
+            return RedirectToAction("List", "Home", new { listId = productToDelete.ListId });
+
         }
         [HttpPost]
         public ActionResult DeleteSelectedItems(List<int> selectedItems)
@@ -226,7 +230,7 @@ namespace ShoppingList.Controllers
                 }
             }
 
-            _context.SaveChanges(); // Değişiklikleri kaydet
+            _context.SaveChanges(); 
 
             return Json(new { success = true });
         }
