@@ -20,13 +20,14 @@ $(document).ready(function () {
         window.location.href = "/Home/List?listId=" + productToDelete.ListId;
     });
 
+
     $('#startShopping').click(function () {
         $('.beforeShopping').hide();
         $('#addPruductNav').hide();
         $('#addProduct').hide();
         $('.afterShopping').show();
         $('.removeProduct').hide();
-        $('#arama').hide();
+        //$('#arama').hide();
         $('.bought').show();
         $('#endShopping').show();
         $('#startShopping').hide();
@@ -38,13 +39,16 @@ $(document).ready(function () {
         $('#addProduct').show();
         $('.afterShopping').hide();
         $('.removeProduct').show();
-        $('#arama').show();
+        //$('arama').show();
         $('.bought').hide();
         $('#endShopping').hide();
         $('#endShopping').hide();
         $('#startShopping').show();
     });
+    // Filtreleme butonuna týklandýðýnda
+
 });
+
 $('.detailbutton').click(function () {
     $(this).siblings('.hiddendetails').show();
     $(this).hide();
@@ -56,4 +60,17 @@ $('.kapat').click(function () {
     $(this).hide();
     $(this).siblings('.detailbutton').show();
 });
+
+$(document).ready(function () {
+    $('#filterButton').click(function (e) {
+        e.preventDefault(); // Sayfa yenilemesini önle
+
+        // Diðer filtreleme iþlemlerini burada gerçekleþtir
+
+        // Otomatik olarak "ALIÞVERÝÞE ÇIKIYORUM" butonuna týkla
+        $('#startShopping').trigger('click');
+    });
+});
+
+  
 
