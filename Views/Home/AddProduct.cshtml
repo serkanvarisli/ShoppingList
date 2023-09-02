@@ -17,7 +17,8 @@
         <select name="categoryFilter" asp-items="@ViewBag.Categories">
             <option value="all">Tümü</option>
         </select>
-        <button type="submit" class="btn form-control btn-outline-secondary btn-sm" style="margin-bottom:5px; margin-top:2.5px;margin-left:2.5px;">Filtrele</button>
+        <button type="submit" class="btn form-control btn-outline-secondary btn-sm"
+            style="margin-bottom:5px; margin-top:2.5px;margin-left:2.5px;">Filtrele</button>
     </div>
 </form>
 
@@ -31,7 +32,11 @@
 </form>
 
 <div class="row">
-    <center><p><h1>Ürünler</h1></p></center>
+    <center>
+        <p>
+        <h1>Ürünler</h1>
+        </p>
+    </center>
     <div class="row">
 
         @*Tekrarlayan ürün sadece 1 kere görünecek*@
@@ -60,10 +65,12 @@
                                         <input type="text" value="@item.ListId" name="ListId" hidden>
                                         <input type="text" value="@item.UserId" name="UserId" hidden>
                                         <div class="form-check">
-                                            <input class="form-check-input addProductDetailRadio" type="checkbox" data-target="hiddenProductDetailContainer_@product.ProductId">
+                                            <input class="form-check-input addProductDetailRadio" type="checkbox"
+                                                data-target="hiddenProductDetailContainer_@product.ProductId">
                                             Ürün Detay Ekle (opsiyonel)
                                         </div>
-                                        <div class="container hiddenProductDetailContainer" id="hiddenProductDetailContainer_@product.ProductId" style="display:none;">
+                                        <div class="container hiddenProductDetailContainer"
+                                            id="hiddenProductDetailContainer_@product.ProductId" style="display:none;">
                                             <div class="row">
                                                 <div class="col">
                                                     <div class="contact-form">
@@ -82,7 +89,8 @@
                                                         <div class="form-group">
                                                             <label class="control-label " for="">Ürün Detayı:</label>
                                                             <div class="col-sm-10">
-                                                                <textarea class="form-control" rows="5" name="ProductDetail1"></textarea>
+                                                                <textarea class="form-control" rows="5"
+                                                                    name="ProductDetail1"></textarea>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -100,7 +108,7 @@
                 }
             }
         }
-        
+
         <script src="~/js/addproduct.js" asp-append-version="true"></script>
         <p></p>
         <p></p>

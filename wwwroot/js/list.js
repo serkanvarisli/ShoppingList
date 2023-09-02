@@ -27,7 +27,7 @@ $(document).ready(function () {
         $('#addProduct').hide();
         $('.afterShopping').show();
         $('.removeProduct').hide();
-        //$('#arama').hide();
+        $('#arama').hide();
         $('.bought').show();
         $('#endShopping').show();
         $('#startShopping').hide();
@@ -39,7 +39,7 @@ $(document).ready(function () {
         $('#addProduct').show();
         $('.afterShopping').hide();
         $('.removeProduct').show();
-        //$('arama').show();
+        $('arama').show();
         $('.bought').hide();
         $('#endShopping').hide();
         $('#endShopping').hide();
@@ -61,16 +61,7 @@ $('.kapat').click(function () {
     $(this).siblings('.detailbutton').show();
 });
 
-$(document).ready(function () {
-    $('#filterButton').click(function (e) {
-        e.preventDefault(); // Sayfa yenilemesini önle
 
-        // Diðer filtreleme iþlemlerini burada gerçekleþtir
-
-        // Otomatik olarak "ALIÞVERÝÞE ÇIKIYORUM" butonuna týkla
-        $('#startShopping').trigger('click');
-    });
-});
 
   
 

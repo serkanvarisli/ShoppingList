@@ -34,26 +34,26 @@ namespace ShoppingList.Controllers
                     ProductId = p.ProductId
                 })
                 .ToList();
-			//arama
-			if (!string.IsNullOrEmpty(p))
-			{
+            //arama
+            if (!string.IsNullOrEmpty(p))
+            {
                 product = product.Where(x => x.ProductName.ToLower().Contains(p.ToLower())).ToList();
             }
             //filtreleme
             var categories = _context.Categories.Select(c => new SelectListItem
-			{
-				Value = c.CategoryName.ToString(),
-				Text = c.CategoryName
-			}).ToList();
-			ViewBag.Categories = categories;
-			if (!string.IsNullOrEmpty(categoryFilter))
-			{
-				if (categoryFilter != "all")
-				{
-					product = product.Where(x => x.CategoryName == categoryFilter).ToList();
-				}
-			}
-			return View(product);
+            {
+                Value = c.CategoryName.ToString(),
+                Text = c.CategoryName
+            }).ToList();
+            ViewBag.Categories = categories;
+            if (!string.IsNullOrEmpty(categoryFilter))
+            {
+                if (categoryFilter != "all")
+                {
+                    product = product.Where(x => x.CategoryName == categoryFilter).ToList();
+                }
+            }
+            return View(product);
         }
         [HttpGet]
         public IActionResult AddProduct()
@@ -108,7 +108,7 @@ namespace ShoppingList.Controllers
             var product = _context.Products.FirstOrDefault(p => p.ProductId == productId);
             if (product == null)
             {
-                return NotFound(); 
+                return NotFound();
             }
             var productUpdateViewModel = new AdminAddFileViewModel
             {
@@ -120,13 +120,13 @@ namespace ShoppingList.Controllers
             return View(productUpdateViewModel);
         }
         [HttpPost]
-        public async Task <IActionResult> UpdateProduct(AdminAddFileViewModel viewModel, IFormFile fileUpload)
+        public async Task<IActionResult> UpdateProduct(AdminAddFileViewModel viewModel, IFormFile fileUpload)
         {
-            
+
             var product = _context.Products.FirstOrDefault(p => p.ProductId == viewModel.ProductId);
             if (product == null)
             {
-                return NotFound(); 
+                return NotFound();
             }
             if (fileUpload != null)
             {
@@ -143,7 +143,7 @@ namespace ShoppingList.Controllers
             product.ProductName = viewModel.ProductName;
             product.CategoryId = viewModel.CategoryId;
             _context.SaveChanges();
-            return RedirectToAction("Product", "Admin"); 
+            return RedirectToAction("Product", "Admin");
         }
         public IActionResult DeleteProduct(AdminAddFileViewModel adminEditFileViewModel)
         {

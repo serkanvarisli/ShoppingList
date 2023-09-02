@@ -9,8 +9,8 @@ using ShoppingList.ViewModel;
 namespace ShoppingList.Controllers
 {
     [Authorize(AuthenticationSchemes = "UserAuthentication")]
-	public class HomeController : Controller
-	{
+    public class HomeController : Controller
+    {
         //[Authorize]
         MyDbContext _context;
 
@@ -19,7 +19,7 @@ namespace ShoppingList.Controllers
             _context = context;
         }
         public IActionResult Index(string p)
-		{
+        {
             string username = User.Identity.Name;
             TempData["username"] = username;
             var kullaniciListe = _context.Lists
@@ -33,7 +33,7 @@ namespace ShoppingList.Controllers
                 .ToList();
 
             return View(kullaniciListe);
-		}
+        }
 
         [HttpGet]
         public IActionResult AddList()
@@ -44,7 +44,7 @@ namespace ShoppingList.Controllers
             var userId = _context.Users
                 .Where(u => u.UserEmail == username)
                 .Select(u => u.UserId)
-                .FirstOrDefault(); 
+                .FirstOrDefault();
 
             var model = new UserListsViewModel
             {
@@ -83,7 +83,7 @@ namespace ShoppingList.Controllers
                 return RedirectToAction("Index", "Home");
             }
         }
-        public IActionResult List(string p, string categoryFilter,int listId)
+        public IActionResult List(string p, string categoryFilter, int listId)
         {
 
             string username = User.Identity.Name;
@@ -108,11 +108,11 @@ namespace ShoppingList.Controllers
                     ProductImage = l.Product.ProductImage,
                     CategoryName = l.Product.Category.CategoryName,
                     ListId = listId,
-                    ProductId=l.ProductId,
+                    ProductId = l.ProductId,
                     ProductDetailId = l.ProductDetailId,
-                    ProductBrand= l.ProductBrand,
-                    ProductQuantity=l.ProductQuantity,
-                    ProductDetail1=l.ProductDetail1
+                    ProductBrand = l.ProductBrand,
+                    ProductQuantity = l.ProductQuantity,
+                    ProductDetail1 = l.ProductDetail1
                 });
             //arama
             if (!string.IsNullOrEmpty(p))
@@ -150,7 +150,7 @@ namespace ShoppingList.Controllers
             return Ok();
         }
         [HttpGet]
-        public IActionResult AddProduct(string searchTerm, string categoryFilter,int listId)
+        public IActionResult AddProduct(string searchTerm, string categoryFilter, int listId)
         {
             string username = User.Identity.Name;
             TempData["username"] = username;
@@ -161,13 +161,13 @@ namespace ShoppingList.Controllers
                 .Select(u => u.UserId)
                 .FirstOrDefault();
 
-            ViewBag.ListId=listId;
+            ViewBag.ListId = listId;
             var product = _context.ProductDetails
                 .Include(p => p.Product)
-                .ThenInclude(p=>p.Category)
+                .ThenInclude(p => p.Category)
                 .Select(p => new ProductDetail
                 {
-                    ProductId= p.ProductId,
+                    ProductId = p.ProductId,
                     ListId = listId,
                     UserId = userId,
                     ProductBrand = p.ProductBrand,
@@ -183,7 +183,7 @@ namespace ShoppingList.Controllers
             //arama
             if (!string.IsNullOrEmpty(searchTerm))
             {
-				ViewBag.Products = products.Where(x => x.ProductName.ToLower().Contains(searchTerm.ToLower())).ToList();
+                ViewBag.Products = products.Where(x => x.ProductName.ToLower().Contains(searchTerm.ToLower())).ToList();
             }
             //filtreleme
             var categories = _context.Categories.Select(c => new SelectListItem
@@ -196,7 +196,7 @@ namespace ShoppingList.Controllers
             {
                 if (categoryFilter != "all")
                 {
-					ViewBag.Products = products.Where(y => y.Category.CategoryName == categoryFilter).ToList();
+                    ViewBag.Products = products.Where(y => y.Category.CategoryName == categoryFilter).ToList();
                 }
             }
             return View(product.ToList());
@@ -206,14 +206,14 @@ namespace ShoppingList.Controllers
         {
             _context.ProductDetails.Add(model);
             _context.SaveChanges();
-            return RedirectToAction("List", "Home", new {listId=model.ListId});
+            return RedirectToAction("List", "Home", new { listId = model.ListId });
         }
         [HttpGet]
         public IActionResult ProductDetail(int productDetailId)
         {
-            var productdetail= _context.ProductDetails
+            var productdetail = _context.ProductDetails
                 .Include(p => p.Product)
-				.Where(p => p.ProductDetailId == productDetailId)
+                .Where(p => p.ProductDetailId == productDetailId)
                 .SingleOrDefault();
             var listId = productdetail.ListId;
             ViewBag.ListId = listId;
@@ -222,17 +222,17 @@ namespace ShoppingList.Controllers
         [HttpPost]
         public IActionResult UpdateProductDetail(ProductDetail model)
         {
-			var product = _context.ProductDetails.FirstOrDefault(p => p.ProductDetailId == model.ProductDetailId);
-			if (product == null)
-			{
-				return NotFound();
-			}
-			product.ProductBrand = model.ProductBrand;
-			product.ProductQuantity = model.ProductQuantity;
-			product.ProductDetail1 = model.ProductDetail1;
-			_context.SaveChanges();
-			return RedirectToAction("ProductDetail", "Home", new { productDetailId = model.ProductDetailId });
-		}
+            var product = _context.ProductDetails.FirstOrDefault(p => p.ProductDetailId == model.ProductDetailId);
+            if (product == null)
+            {
+                return NotFound();
+            }
+            product.ProductBrand = model.ProductBrand;
+            product.ProductQuantity = model.ProductQuantity;
+            product.ProductDetail1 = model.ProductDetail1;
+            _context.SaveChanges();
+            return RedirectToAction("ProductDetail", "Home", new { productDetailId = model.ProductDetailId });
+        }
         public IActionResult DeleteProduct(int productDetailId)
         {
             var productToDelete = _context.ProductDetails.FirstOrDefault(p => p.ProductDetailId == productDetailId);
@@ -254,7 +254,7 @@ namespace ShoppingList.Controllers
                 }
             }
 
-            _context.SaveChanges(); 
+            _context.SaveChanges();
 
             return Json(new { success = true });
         }

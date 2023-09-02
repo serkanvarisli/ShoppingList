@@ -12,7 +12,7 @@ namespace ShoppingList.Controllers
     [Authorize]
 
     public class LoginController : Controller
-	{
+    {
         MyDbContext _context;
         public object PageUtility { get; private set; }
 
@@ -24,7 +24,7 @@ namespace ShoppingList.Controllers
         [Authorize(AuthenticationSchemes = "UserAuthentication")]
 
         public IActionResult Index()
-		{
+        {
             if (HttpContext.User.Identity.IsAuthenticated)
             {
                 return RedirectToAction("Index", "Home");
@@ -33,10 +33,10 @@ namespace ShoppingList.Controllers
         }
         [AllowAnonymous]
         [HttpPost]
-        public async Task <IActionResult> Index(User model)
+        public async Task<IActionResult> Index(User model)
         {
             var user = _context.Users.FirstOrDefault(c => c.UserEmail == model.UserEmail && c.Password == model.Password);
-            if (user!=null)
+            if (user != null)
             {
                 await HttpContext.SignOutAsync("UserAuthentication");
 
@@ -61,23 +61,24 @@ namespace ShoppingList.Controllers
         [HttpGet]
 
         public IActionResult Register()
-		{
-			return View();
-		}
+        {
+            return View();
+        }
         [AllowAnonymous]
         [HttpPost]
         public IActionResult Register(User user)
         {
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return View();
             }
             else
-            { 
-            if (_context.Users.Any(c => c.UserEmail == user.UserEmail))
             {
-                TempData["Hata"] = "Kullanıcı zaten kayıtlı";
-                return RedirectToAction("Register", "Login");           }
+                if (_context.Users.Any(c => c.UserEmail == user.UserEmail))
+                {
+                    TempData["Hata"] = "Kullanıcı zaten kayıtlı";
+                    return RedirectToAction("Register", "Login");
+                }
                 _context.Users.Add(user);
                 _context.SaveChanges();
                 TempData["Kayıt"] = "Kayıt başarılı giriş yapınız";
@@ -100,7 +101,7 @@ namespace ShoppingList.Controllers
         {
             if (HttpContext.User.Identity.IsAuthenticated)
             {
-                return RedirectToAction("Index", "Admin"); 
+                return RedirectToAction("Index", "Admin");
             }
             return View();
         }
@@ -120,11 +121,12 @@ namespace ShoppingList.Controllers
                 ClaimsIdentity identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                 ClaimsPrincipal principal = new ClaimsPrincipal(identity);
 
-                await HttpContext.SignInAsync("AdminAuthentication",principal, new AuthenticationProperties() { IsPersistent = false });
+                await HttpContext.SignInAsync("AdminAuthentication", principal, new AuthenticationProperties() { IsPersistent = false });
 
                 return RedirectToAction("Index", "Admin");
             }
-            else {
+            else
+            {
                 TempData["ErrorMessage"] = "Kullanıcı adı veya şifre hatalı";
 
             }
