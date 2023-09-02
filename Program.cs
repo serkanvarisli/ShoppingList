@@ -20,6 +20,12 @@ builder.Services.AddDbContext<MyDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("Sql"));
 });
+builder.Services.AddSession(
+    a =>
+    {
+        a.IdleTimeout = TimeSpan.FromMinutes(30);
+        a.Cookie.Name = "ShoppingList";
+    });
 var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

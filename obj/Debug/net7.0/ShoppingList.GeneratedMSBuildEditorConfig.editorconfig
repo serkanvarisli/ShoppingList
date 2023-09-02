@@ -48,6 +48,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBZGRMaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Codding/Programming/.net/ShoppingList/ShoppingList/Views/Home/AddProduct.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBZGRQcm9kdWN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Codding/Programming/.net/ShoppingList/ShoppingList/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -58,14 +62,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Codding/Programming/.net/ShoppingList/ShoppingList/Views/Home/ProductDetail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcm9kdWN0RGV0YWlsLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/Codding/Programming/.net/ShoppingList/ShoppingList/Views/Home/ProductReadOnly.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcm9kdWN0UmVhZE9ubHkuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/Codding/Programming/.net/ShoppingList/ShoppingList/Views/Home/ProductSelectToAdd.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcm9kdWN0U2VsZWN0VG9BZGQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Codding/Programming/.net/ShoppingList/ShoppingList/Views/Login/Admin.cshtml]

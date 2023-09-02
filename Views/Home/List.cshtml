@@ -6,7 +6,7 @@
         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">LİSTELERİM</a>
     </li>
         <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="ProductSelectToAdd" asp-route-listId="@ViewBag.ListId" id="addPruductNav">ÜRÜN EKLE</a>
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AddProduct" asp-route-listId="@ViewBag.ListId" id="addPruductNav">ÜRÜN EKLE</a>
         </li>
 }
 @section user {
@@ -20,8 +20,9 @@
             @ViewBag.ListName Listesi
         </h2>
     </div>
+    <div id="arama">
         <div class="col">
-<form asp-action="List" asp-controller="Home" asp-route-listId="@ViewBag.ListId" method="post" class="form-inline justify-content-end">
+<form asp-action="List" asp-controller="Home" asp-route-listId="@ViewBag.ListId" class="form-inline justify-content-end">
     <div>
         
         <select name="categoryFilter" asp-items="@ViewBag.Categories">
@@ -37,7 +38,7 @@
     </div>
 </form>
 
-<form asp-action="List" asp-controller="Home" asp-route-listId="@ViewBag.ListId" method="post" class="form-inline justify-content-end">
+<form asp-action="List" asp-controller="Home" asp-route-listId="@ViewBag.ListId" class="form-inline justify-content-end">
     
     <div class="input-group">
         <input type="text" name="p" class="form-control" placeholder="Ürün Ara.." />
@@ -47,25 +48,26 @@
     </div>
 </form>
     </div>
-
+    </div>
 </div>
 <br />
 <form>
     <div class="row">  
         <div class="col">
 
-            <a asp-controller="Home" asp-action="ProductSelectToAdd" asp-route-listId="@ViewBag.ListId">
+            <a asp-controller="Home" asp-action="AddProduct" asp-route-listId="@ViewBag.ListId">
                         <button type="button" class="btn btn-success" id="addProduct">Ürün Ekle</button>
                     </a>
         </div>
         <div class="col">
+            <form asp-action="StartShopping" asp-controller="Home" method="post">
             <button type="button" class="btn btn-primary float-right" id="startShopping">ALIŞVERİŞE ÇIKIYORUM</button>
-            @foreach(var list in Model)
-            {
+            </form>
+            <form asp-action ="EndShopping" asp-controller="Home" method="post">
                 <a onclick="return confirm('Alışveriş Tamamlansın Mı ?')">
                     <button type="submit" class="btn btn-secondary float-right" id="endShopping" style="display:none;">ALIVERİŞ TAMAMLANDI</button>
                 </a>
-            }
+            </form>
         </div>
     </div>
     <div class="form-group">
@@ -98,13 +100,27 @@
                             <a asp-action="ProductDetail" asp-controller="Home" asp-route-productDetailId="@item.ProductDetailId">
                                 <button type="button" class="btn btn-primary beforeShopping">Ürün Detayı</button>
                             </a>
-                            <a asp-action="ProductReadOnly" asp-controller="Home" asp-route-productDetailId="@item.ProductDetailId">
-                                <button type="button" class="btn btn-secondary afterShopping" style="display:none;">Ürün Detayı</button>
-                            </a>
+                            <button type="button" class="btn btn-secondary afterShopping detailbutton" style="display:none;">Ürün Detayı</button>
+                            <button type="button" class="btn btn-danger kapat " style="display:none;" >Kapat</button>
                             <p></p>
                             <a asp-action="DeleteProduct" asp-controller="Home" asp-route-productDetailId="@item.ProductDetailId" onclick="return confirm('@item.ProductName adlı ürünü listeden çıkarmak istiyor musunuz?')">
                             <button type="button" class="btn btn-danger removeProduct">Ürünü Çıkar</button>
 							</a>
+                            <div class="container hiddendetails" style="display:none;">
+                                <p>
+                                    <h6>Ürün Detayları</h6>
+                                    <u>Markası</u><br>
+                                    @item.ProductBrand
+                                </p>
+                                <p>
+                                    <u>Miktarı:</u><br>
+                                    @item.ProductQuantity
+                                </p>
+                                <p>
+                                    <u>Ürün Detayı:</u><br>
+                                    @item.ProductDetail1
+                                </p>
+                            </div>
                         </center>
                     </div>
                 </div>

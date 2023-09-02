@@ -26,6 +26,7 @@ $(document).ready(function () {
         $('#addProduct').hide();
         $('.afterShopping').show();
         $('.removeProduct').hide();
+        $('#arama').hide();
         $('.bought').show();
         $('#endShopping').show();
         $('#startShopping').hide();
@@ -37,8 +38,22 @@ $(document).ready(function () {
         $('#addProduct').show();
         $('.afterShopping').hide();
         $('.removeProduct').show();
+        $('#arama').show();
         $('.bought').hide();
+        $('#endShopping').hide();
         $('#endShopping').hide();
         $('#startShopping').show();
     });
 });
+$('.detailbutton').click(function () {
+    $(this).siblings('.hiddendetails').show();
+    $(this).hide();
+    $(this).siblings('.kapat').show();
+});
+
+$('.kapat').click(function () {
+    $(this).siblings('.hiddendetails').hide();
+    $(this).hide();
+    $(this).siblings('.detailbutton').show();
+});
+

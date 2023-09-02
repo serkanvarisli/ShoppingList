@@ -109,8 +109,11 @@ namespace ShoppingList.Controllers
                     CategoryName = l.Product.Category.CategoryName,
                     ListId = listId,
                     ProductId=l.ProductId,
-                    ProductDetailId = l.ProductDetailId
-				});
+                    ProductDetailId = l.ProductDetailId,
+                    ProductBrand= l.ProductBrand,
+                    ProductQuantity=l.ProductQuantity,
+                    ProductDetail1=l.ProductDetail1
+                });
             //arama
             if (!string.IsNullOrEmpty(p))
             {
@@ -133,7 +136,21 @@ namespace ShoppingList.Controllers
 
             return View(products.ToList());
         }
-        public IActionResult ProductSelectToAdd(string searchTerm, string categoryFilter,int listId)
+        [HttpPost]
+        public IActionResult StartShopping()
+        {
+            HttpContext.Session.SetString("alışveriş", "true");
+            return Ok();
+        }
+        [HttpPost]
+        public IActionResult EndShopping()
+        {
+            HttpContext.Session.Remove("alışveriş");
+            HttpContext.Session.Clear();
+            return Ok();
+        }
+        [HttpGet]
+        public IActionResult AddProduct(string searchTerm, string categoryFilter,int listId)
         {
             string username = User.Identity.Name;
             TempData["username"] = username;
@@ -185,7 +202,7 @@ namespace ShoppingList.Controllers
             return View(product.ToList());
         }
         [HttpPost]
-        public IActionResult ProductSelectToAdd(ProductDetail model)
+        public IActionResult AddProduct(ProductDetail model)
         {
             _context.ProductDetails.Add(model);
             _context.SaveChanges();
@@ -241,16 +258,5 @@ namespace ShoppingList.Controllers
 
             return Json(new { success = true });
         }
-        public IActionResult ProductReadOnly(int productDetailId)
-        {
-            var productdetail = _context.ProductDetails
-               .Include(p => p.Product)
-               .Where(p => p.ProductDetailId == productDetailId)
-               .SingleOrDefault();
-			var listId = productdetail.ListId;
-			    ViewBag.ListId = listId;
-			return View(productdetail);
-        }
-
     }
 }
