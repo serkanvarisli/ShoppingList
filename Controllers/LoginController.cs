@@ -76,12 +76,11 @@ namespace ShoppingList.Controllers
             { 
             if (_context.Users.Any(c => c.UserEmail == user.UserEmail))
             {
-                TempData["ErrorMessage"] = "Kullanıcı zaten kayıtlı";
-                return RedirectToAction("Register", "Login");
-            }
-            _context.Users.Add(user);
-            _context.SaveChanges();
-            TempData["SuccessMessage"] = "Kayıt başarılı";
+                TempData["Hata"] = "Kullanıcı zaten kayıtlı";
+                return RedirectToAction("Register", "Login");           }
+                _context.Users.Add(user);
+                _context.SaveChanges();
+                TempData["Kayıt"] = "Kayıt başarılı giriş yapınız";
                 return RedirectToAction("Register", "Login");
 
             }

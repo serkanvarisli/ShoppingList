@@ -23,7 +23,7 @@ namespace ShoppingList.Controllers
         {
             return View();
         }
-        public IActionResult Product(int categoryid)
+        public IActionResult Product(int categoryid, string p, string categoryFilter)
         {
             var product = _context.Products
                 .Select(p => new AdminAddFileViewModel()
@@ -34,7 +34,26 @@ namespace ShoppingList.Controllers
                     ProductId = p.ProductId
                 })
                 .ToList();
-            return View(product);
+			//arama
+			if (!string.IsNullOrEmpty(p))
+			{
+                product = product.Where(x => x.ProductName.ToLower().Contains(p.ToLower())).ToList();
+            }
+            //filtreleme
+            var categories = _context.Categories.Select(c => new SelectListItem
+			{
+				Value = c.CategoryName.ToString(),
+				Text = c.CategoryName
+			}).ToList();
+			ViewBag.Categories = categories;
+			if (!string.IsNullOrEmpty(categoryFilter))
+			{
+				if (categoryFilter != "all")
+				{
+					product = product.Where(x => x.CategoryName == categoryFilter).ToList();
+				}
+			}
+			return View(product);
         }
         [HttpGet]
         public IActionResult AddProduct()
@@ -101,21 +120,28 @@ namespace ShoppingList.Controllers
             return View(productUpdateViewModel);
         }
         [HttpPost]
-        public IActionResult UpdateProduct(AdminAddFileViewModel viewModel)
+        public async Task <IActionResult> UpdateProduct(AdminAddFileViewModel viewModel, IFormFile fileUpload)
         {
-            if (_context.Products.Any(c => c.ProductName == viewModel.ProductName))
-            {
-                TempData["ErrorMessage"] = "Ürün zaten var";
-                return RedirectToAction("AddCategory", "Admin");
-            }
+            
             var product = _context.Products.FirstOrDefault(p => p.ProductId == viewModel.ProductId);
             if (product == null)
             {
                 return NotFound(); 
             }
+            if (fileUpload != null)
+            {
+                var localPath = "/wwwroot/images/products/";
+                var path = Path.Join(Directory.GetCurrentDirectory(), localPath, fileUpload.FileName);
+                await using (var stream = new FileStream(path, FileMode.Create))
+                {
+                    await fileUpload.CopyToAsync(stream);
+                }
+
+                product.ProductImage = fileUpload.FileName;
+
+            }
             product.ProductName = viewModel.ProductName;
             product.CategoryId = viewModel.CategoryId;
-            product.ProductImage = viewModel.ProductImage;
             _context.SaveChanges();
             return RedirectToAction("Product", "Admin"); 
         }
@@ -167,12 +193,12 @@ namespace ShoppingList.Controllers
         {
             if (_context.Categories.Any(c => c.CategoryName == category.CategoryName))
             {
-                TempData["ErrorMessage"] = "Kategori zaten var";
+                ViewData["ErrorMessage"] = "Kategori zaten var";
                 return RedirectToAction("Category", "Admin");
             }
             _context.Categories.Update(category);
             _context.SaveChanges();
-            TempData["SuccessMessage"] = "Kategori güncellendi";
+            ViewData["SuccessMessage"] = "Kategori güncellendi";
             return RedirectToAction("Category", "Admin");
         }
         public IActionResult DeleteCategory(int categoryId)

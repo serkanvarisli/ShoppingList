@@ -50,8 +50,8 @@
                                         <input type="checkbox" name="showPassword" id="showPassword"  />
                                     </div>
                                     <button type="submit" class="btn btn-theme">Üye Ol</button>
-                                    @TempData["ErrorMessage"]
-                                    @TempData["SuccessMessage"]
+                                    @TempData["Hata"]
+                                    @TempData["Kayıt"]
                                    <div class="validation-summary">
                                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                                 </div>

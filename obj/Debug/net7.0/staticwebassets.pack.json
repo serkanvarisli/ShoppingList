@@ -41,20 +41,92 @@
       "PackagePath": "staticwebassets\\images\\login\\shoppinglist.jpg"
     },
     {
+      "Id": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\images\\products\\armchair.png",
+      "PackagePath": "staticwebassets\\images\\products\\armchair.png"
+    },
+    {
+      "Id": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\images\\products\\bookshelf.png",
+      "PackagePath": "staticwebassets\\images\\products\\bookshelf.png"
+    },
+    {
       "Id": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\images\\products\\bread.png",
       "PackagePath": "staticwebassets\\images\\products\\bread.png"
+    },
+    {
+      "Id": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\images\\products\\coffee-table.png",
+      "PackagePath": "staticwebassets\\images\\products\\coffee-table.png"
+    },
+    {
+      "Id": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\images\\products\\couch.png",
+      "PackagePath": "staticwebassets\\images\\products\\couch.png"
+    },
+    {
+      "Id": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\images\\products\\detergent.png",
+      "PackagePath": "staticwebassets\\images\\products\\detergent.png"
+    },
+    {
+      "Id": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\images\\products\\dining.png",
+      "PackagePath": "staticwebassets\\images\\products\\dining.png"
+    },
+    {
+      "Id": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\images\\products\\double-bed.png",
+      "PackagePath": "staticwebassets\\images\\products\\double-bed.png"
+    },
+    {
+      "Id": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\images\\products\\egg.png",
+      "PackagePath": "staticwebassets\\images\\products\\egg.png"
+    },
+    {
+      "Id": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\images\\products\\grapes.png",
+      "PackagePath": "staticwebassets\\images\\products\\grapes.png"
+    },
+    {
+      "Id": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\images\\products\\jacket.png",
+      "PackagePath": "staticwebassets\\images\\products\\jacket.png"
+    },
+    {
+      "Id": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\images\\products\\milk.png",
+      "PackagePath": "staticwebassets\\images\\products\\milk.png"
     },
     {
       "Id": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\images\\products\\mobilephone_79875.png",
       "PackagePath": "staticwebassets\\images\\products\\mobilephone_79875.png"
     },
     {
+      "Id": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\images\\products\\onion.png",
+      "PackagePath": "staticwebassets\\images\\products\\onion.png"
+    },
+    {
       "Id": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\images\\products\\pant.png",
       "PackagePath": "staticwebassets\\images\\products\\pant.png"
     },
     {
+      "Id": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\images\\products\\pasta.png",
+      "PackagePath": "staticwebassets\\images\\products\\pasta.png"
+    },
+    {
+      "Id": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\images\\products\\shirt.png",
+      "PackagePath": "staticwebassets\\images\\products\\shirt.png"
+    },
+    {
+      "Id": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\images\\products\\shoe.png",
+      "PackagePath": "staticwebassets\\images\\products\\shoe.png"
+    },
+    {
       "Id": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\images\\products\\soap.png",
       "PackagePath": "staticwebassets\\images\\products\\soap.png"
+    },
+    {
+      "Id": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\images\\products\\softener.png",
+      "PackagePath": "staticwebassets\\images\\products\\softener.png"
+    },
+    {
+      "Id": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\images\\products\\table.png",
+      "PackagePath": "staticwebassets\\images\\products\\table.png"
+    },
+    {
+      "Id": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\images\\products\\tablet.png",
+      "PackagePath": "staticwebassets\\images\\products\\tablet.png"
     },
     {
       "Id": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\images\\products\\tomato.png",
@@ -65,8 +137,20 @@
       "PackagePath": "staticwebassets\\images\\products\\tshirt.png"
     },
     {
+      "Id": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\images\\products\\usb-cable.png",
+      "PackagePath": "staticwebassets\\images\\products\\usb-cable.png"
+    },
+    {
+      "Id": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\images\\products\\vacuum.png",
+      "PackagePath": "staticwebassets\\images\\products\\vacuum.png"
+    },
+    {
       "Id": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\images\\products\\water.png",
       "PackagePath": "staticwebassets\\images\\products\\water.png"
+    },
+    {
+      "Id": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\images\\products\\watermelon.png",
+      "PackagePath": "staticwebassets\\images\\products\\watermelon.png"
     },
     {
       "Id": "D:\\Codding\\Programming\\.net\\ShoppingList\\ShoppingList\\wwwroot\\js\\addproduct.js",
